@@ -1,0 +1,18 @@
+.weather
+- @weather.reverse.each do |item|
+  %div
+  Дата:
+  = item.get_date
+  %br
+  Температура:
+  = item.get_temperature
+  - if item.humidity
+    %br
+    Вологість повітря:
+    = item.humidity
+  - if item.has_wind? 
+    %br
+    Вітер
+    = item.get_wind
+  - if item.conditions
+    = image_tag item.get_image_src

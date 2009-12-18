@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/once"]
+	path = vendor/plugins/once
+	url = git://github.com/html/once.git
