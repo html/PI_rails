@@ -5,4 +5,8 @@ module ApplicationHelper
       javascript_include_tag 'jquery.min'
     end
   end
+
+  def global_url_for(str)
+    @host + str
+  end
 end

@@ -1,0 +1,66 @@
+
+.sp {font-size:1px; color:#000000; text-align:center;}
+.authors {font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#000066; text-align:right; padding-right:10px;}
+.pagetitle {font-family:Verdana, Arial, Helvetica, sans-serif; font-size:18px; color:#FFAB56; text-align:left; padding-left:10px;}
+.txt {text-align:justify; color:#000000; font-family:Arial, Helvetica, sans-serif; font-size:13px; padding-left:10px; padding-right:10px; padding-bottom:10px;}
+	
+a:link.top {padding-left: 15px; font-family:tahoma; font-size:11pt;color:black; text-decoration:none; font-weight:bold; text-align:left;}
+a:visited.top {padding-left: 15px; font-family:tahoma; font-size:11pt; color:#FFAB56; text-decoration:none; font-weight:bold; text-align:left;}
+a:hover.top {padding-left: 15px; font-family:tahoma;  color:#FFAB56; text-decoration:underline; font-weight:bold; text-align}
+.joke {text-align:left; color:#000000; font-family:comic sans ms; font-size:20px;}
+.fl {float:left;}
+.fr {float:right;}
+.clear {clear:both;font-size:0;}
+.message { border:3px solid #ff9933; padding:3px; }
+.error {border:3px solid red; padding:3px; margin:0; }
+
+#dojoxLightboxDialog {
+    overflow:hidden;
+}
+
+.icon {
+    color:blue;
+    text-decoration:none;
+    padding:0 0 3px 18px;
+    height:20px;
+    line-height:20px;
+    display:inline;
+    border:0px;
+}
+
+.icon:hover {
+    text-decoration:underline;
+}
+
+.delete {
+    background: no-repeat 0 0 url(/images/silk/icons/delete.png);
+}
+
+.edit {
+    background: no-repeat 0 0 url(/images/silk/icons/page_white_edit.png);
+}
+
+.center {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tagCloud {
+    display:block;
+    width: 200px;
+    height: 150px;
+    padding:20px;
+}
+
+.tagCloud  li {
+    list-style-type:none;
+    display:inline-table;
+    float:left;
+    text-decoration:none;
+    margin:0;padding:0;
+}
+
+.selected {
+    border-color:blue;
+}

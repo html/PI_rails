@@ -1,0 +1,126 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %title=h yield(:title)
+    %meta{ :name => "keywords", :content => "" }
+    %meta{ :name => "description", :content => "" }
+    = stylesheet_link_tag 'global', 'dojo', 'soria/soria', 'soria/soria_rtl'
+    = yield(:head) 
+  %body{ :topmargin => "0", :bgcolor => "#488EC2" }
+    %table{ :cellspacing => "0", :border => "0", :align => "center", :height => "30", :cellpadding => "0", :width => "960" }
+      %tr{ :height => "100" }
+        %td{ :background => "/images/left.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
+        %td{ :background => "/images/grad.gif", :align => "left", :valign => "middle", :width => "915" }
+          %img{ :src => "/images/gerb.jpg", :style => " float:left;margin-left:20px;" }
+          %p.joke
+            =h yield(:title)
+        %td{ :background => "/images/right.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
+      %tr{ :height => "25" }
+        %td{ :background => "/images/left.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
+        %td{ :width => "915", :bgcolor => "#D7E5FA", :style => "padding:5px;" }
+        %td{ :background => "/images/right.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
+      %tr{ :height => "25" }
+        %td{ :background => "/images/left.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
+        %td{ :align => "center", :valign => "top", :width => "915", :bgcolor => "#FFFFFF" }
+          %table{ :cellspacing => "0", :border => "0", :align => "center", :height => "10", :cellpadding => "0", :width => "915" }
+            %tr{ :height => "10" }
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "181" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "700" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+            %tr{ :height => "10" }
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+              %td{ :align => "center", :valign => "top", :width => "181" }
+                /
+                  begin menu table
+                %table{ :cellspacing => "0", :height => "10", :align => "center", :cellpadding => "0", :width => "181" }
+                  %tr{ :height => "34" }
+                    %td{ :height => "34", :align => "center", :width => "181" }
+                      %img{ :src => "/images/menu_1.gif", :height => "34", :width => "181" }
+                  %tr
+                    %td{ :background => "/images/menu_2.gif", :height => "10", :width => "181" }
+                      %a.top{ :href => global_url_for("/") }
+                        Головна
+                      %br
+                      %a.top{ :href => global_url_for("/forum") }
+                        Форум
+                      %br
+                      %a.top{ :href => global_url_for("/gallery") }
+                        Галерея
+                      %br
+                      %a.top{ :href => global_url_for("/articles") }
+                        Статті
+                      %br
+                      %a.top{ :href => global_url_for("/links") }
+                        Ссилки
+                      %br
+                      %br
+                      %a.top{ :href => global_url_for("/forum/ucp.php?mode=login") }
+                        Увійти на сайт
+                  %tr{ :height => "34" }
+                    %td{ :height => "34", :align => "center", :width => "181" }
+                      %img{ :src => "/images/menu_3.gif", :height => "34", :width => "181" }
+                /
+                  end memu table
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+              %td{ :align => "left", :valign => "top", :width => "700" }
+                %hr{ :size => "2", :color => "#FFAB56;", :width => "685" }
+                .soria
+                  = yield
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+            %tr{ :height => "10" }
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "181" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "700" }
+                %p.sp
+                  \&nbsp;
+              %td{ :width => "15" }
+                %p.sp
+                  \&nbsp;
+        %td{ :background => "/images/right.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
+      %tr{ :height => "25" }
+        %td{ :background => "/images/left.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
+        %td{ :align => "right", :width => "915", :bgcolor => "#D7E5FA" }
+          дизайн зроблено Боврашом Дмитром.&nbsp;
+        %td{ :background => "/images/right.gif", :width => "17" }
+          %p.sp
+            \&nbsp;
