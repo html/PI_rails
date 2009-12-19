@@ -30,6 +30,15 @@ class Weather < ActiveRecord::Base
     2 => 'західний',
     3 => 'східний'
   }
+  @@days = {
+    0 => 'неділя',
+    1 => 'понеділок',
+    2 => 'вівторок',
+    3 => 'середа',
+    4 => 'четвер',
+    5 => 'п\'ятниця',
+    6 => 'субота'
+  }
 
   set_table_name :weather
 
@@ -97,12 +106,15 @@ class Weather < ActiveRecord::Base
   end
 
   def get_date
-    case date
-      when Date.today then 'сьогодні'
-      when Date.tomorrow then 'завтра'
-      when Date.yesterday then 'вчора'
-      else ''
-    end + ', ' + date.to_s
+    s = case date
+      when Date.today then 'Сьогодні'
+      when Date.tomorrow then 'Завтра'
+      when Date.yesterday then 'Вчора'
+      else nil
+    end 
+
+    d = date.strftime('%d.%m.%Y')
+    s ? s + ', ' + @@days[date.wday] + ', '  + d : d
   end
 
   def has_wind?
