@@ -5,14 +5,16 @@ class Weather < ActiveRecord::Base
     "Mostly Cloudy" => 1,
     "Partly Cloudy" => 2,
     "Rain and Snow" => 3,
-    "Scattered Showers" => 4
+    "Scattered Showers" => 4,
+    "Showers" => 5
   }
 
   @@images = {
     1 => 'mostly_cloudy',
     2 => 'partly_cloudy',
     3 => 'rain_snow',
-    4 => 'chance_of_rain'
+    4 => 'chance_of_rain',
+    5 => 'rain'
   }
 
   @@directions = {
