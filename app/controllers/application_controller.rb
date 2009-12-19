@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   def assign_host
-    @host = request.env['SERVER_NAME'] == '127.0.0.1' ? @@local_domain : 'http://' + request.env['SERVER_NAME'].sub(/^\w+\./, '')
+    @clean_host = request.env['SERVER_NAME'] == '127.0.0.1' ? '127.0.0.1' : request.env['SERVER_NAME'].sub(/^\w+\./, '')
+    @host = request.env['SERVER_NAME'] == '127.0.0.1' ? @@local_domain : 'http://' +  @clean_host
   end
 end
