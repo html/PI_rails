@@ -51,8 +51,7 @@ class Weather < ActiveRecord::Base
   end
 
   def self.weather_is_not_up_to_date
-    d = maximum('date')
-    !d || d < (Date.today + 3.days)
+    connection.select_value("SELECT MAX(updated_at) > datetime('now', '-5 minutes') FROM weather").to_i.zero?
   end
 
   def self.update_weather
