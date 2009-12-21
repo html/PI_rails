@@ -19,4 +19,12 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+
+  def file_contents(name)
+    path = "#{RAILS_ROOT}/tmp/files/#{name}"
+    
+    if File.exists?(path) && File.readable?(path)
+      File.open(path).read
+    end
+  end
 end
