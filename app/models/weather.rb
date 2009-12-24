@@ -7,7 +7,8 @@ class Weather < ActiveRecord::Base
     "Rain and Snow" => 3,
     "Scattered Showers" => 4,
     "Showers" => 5,
-    "Rain" => 6
+    "Rain" => 6,
+    "Fog" => 7
   }
 
   @@images = {
@@ -16,7 +17,8 @@ class Weather < ActiveRecord::Base
     3 => 'rain_snow',
     4 => 'chance_of_rain',
     5 => 'rain',
-    6 => 'rain'
+    6 => 'rain',
+    7 => 'fog'
   }
 
   @@directions = {
