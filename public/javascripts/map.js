@@ -108,6 +108,7 @@
     $('#fullscreen').fancybox({
       'hideOnContentClick': false, 
       callbackOnClose: function(){
+        var center = window.map.getCenter();
         $(window).unbind('resize');
         map.appendTo($('.soria')).height(height).show();
         $('#controls').append($('#zoomControls').css({position: 'relative', float: 'left', margin: 0}).appendTo()).show();
@@ -116,7 +117,8 @@
           fullscreen : false
         });
 
-        enableTooltipsFor('#controls a.tooltip');
+        window.map.checkResize();
+        window.map.setCenter(center);
       },
       callbackOnStart: function(){
         $('#zoomControls').hide();
@@ -127,6 +129,7 @@
         map.hide()
       },
       callbackOnShow: function(){
+        var center = window.map.getCenter();
         $(window).resize(updateFancyContent);
         $(window).trigger('resize');
         var f = $('#fancy_div');
@@ -135,6 +138,8 @@
         f.empty().append(map.css('z-index', 1000)).show();
         map.show();
         $('#zoomControls').css({ position: 'absolute', top: 0, float: 'right', margin: 10}).appendTo(map).show();
+        window.map.checkResize();
+        window.map.setCenter(center);
       }
     });
 
