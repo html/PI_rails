@@ -46,4 +46,9 @@ ActionController::Routing::Routes.draw do |map|
     map.connect ':action/:id.:format', :controller => 'weather'
   end
 
+  map.with_options :conditions => {:subdomain => 'map'} do |map|
+    map.connect ':action/:id', :controller => 'map'
+    map.connect ':action/:id.:format', :controller => 'map'
+  end
+
 end

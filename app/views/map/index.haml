@@ -1,0 +1,57 @@
+- title 'Карта Піщанки'
+- require_jquery
+- require_tooltips
+- content_for :head do
+  = stylesheet_link_tag 'jquery.fancybox'
+  %style{ :type => 'text/css' }
+    :sass
+      .border
+        border: 1px solid white
+      .gmnoprint
+        z-index: 1000
+        color: black
+      td
+        overflow: visible
+      .hidden 
+        display: none
+      #zoomControls
+        z-index: 9
+  = javascript_include_tag 'jquery/jquery.ba-bbq'
+  = javascript_include_tag 'jquery/jquery.scrollTo'
+  = javascript_include_tag 'http://maps.google.com/maps?language=uk&file=api&v=2&sensor=false&key=ABQIAAAAnpTQ0Kx-JLc-OUcamsoL5xQuut1qxuirjowJbeCAGAh4MTQorhSiR3Mn5Hsu99d-pltFnv1UcqZlVA'
+  = javascript_include_tag 'egeoxml'
+  = javascript_include_tag 'lambda'
+  = javascript_include_tag 'jquery/jquery.fancybox'
+  = javascript_include_tag 'map2'
+  = javascript_include_tag 'map'
+#controls
+  .fl
+    .fl
+      ~ link_to_void image_tag('icons/rightleft_arrow.png', :width => "50", :height => "50"), :class => 'tooltip', :id => 'toggleMap',  :title =>  'Змінити ширину карти'
+    .fl
+      ~ link_to_void image_tag('icons/down_arrow.png', :width => 50, :height => 50), :class => 'tooltip', :id => 'incHeight',  :title =>  'Збільшити висоту карти' 
+    .fl
+      ~ link_to_void image_tag('icons/up_arrow.png', :width => 50, :height => 50), :class => 'tooltip', :id => 'decHeight',  :title =>  'Зменшити висоту карти' 
+    .fl
+      ~ link_to image_tag('icons/fullscreen.png', :width => 50, :height => 50, :title => "Карта Піщанки", :alt => "Карта Піщанки"), '#fullscreen', :class => 'tooltip', :id => 'fullscreen',  :title =>  'Дивитись на повний екран' 
+  #zoomControls.fl
+    .fl
+      ~ link_to_void image_tag('icons/zoom_in.png', :width => 50, :height => 50), :class => 'tooltip', :id => 'zoomIn',  :title =>  'Збільшити карту' 
+    .fl
+      ~ link_to_void image_tag('icons/zoom_out.png', :width => 50, :height => 50), :class => 'tooltip', :id => 'zoomOut',  :title =>  'Зменшити карту' 
+    /
+      %div#ccCopy.fl
+        ~ link_to_void image_tag('icons/clipboard_copy.png', :width => 50, :height => 50), :class => 'tooltip', :id => 'clipboardCopy',  :title =>  'Копіювати ссилку на елемент карти до буферу обміну'
+    .fr
+      ~ link_to_void image_tag('icons/kig.png', :width => 50, :height => 50), :class => 'tooltip', :id => 'rightPanel',  :title =>  'Показати/сховати праву панель'
+.clear
+%table#map{ :width => '100%', :cellspacing => 0, :cellpadding => 0, :style => 'position:relative', :height => '100%'}
+  %tr
+    %td#aroundmap{ :valign => 'top', :height => '100%' }
+      #map_container.fl.border{ :style => 'width:100%;height:400px;' }
+    %td#rpContainer{ :width => '172',  :valign => 'top', :style => 'background-color:white;'}
+      #sidebar{ :style => 'padding:5px;' }
+  %tr
+    %td{ :colspan => 2}
+.hidden
+.clear
