@@ -94,9 +94,8 @@
 
       fo.css({top: $(window).scrollTop(), left: $(window).scrollLeft()});
 
-      $(['width', 'height']).each(function(){
-        eval("$('#fancy_content').%s(t.%s() - 100)".replace(/%s/g, this));
-      });
+      $('#fancy_content').height(t.height() - 100);
+      $('#fancy_content').width(t.width() - 60);
 
       fo.height(t.height() - 80);
       fo.width(t.width() - 40);
