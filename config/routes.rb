@@ -38,17 +38,8 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-
-  map.with_options :conditions => {:subdomain => 'weather'} do |weather|
-    map.connect ':action/:id', :controller => 'weather'
-    map.connect ':action/:id.:format', :controller => 'weather'
-  end
-
-  map.with_options :conditions => {:subdomain => 'map'} do |map|
-    map.connect ':action/:id', :controller => 'map'
-    map.connect ':action/:id.:format', :controller => 'map'
-  end
-
+  map.subdomain_connect ':controller.:host/:action/:id'
+  #Following routes do not work
+  #map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
 end

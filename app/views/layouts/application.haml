@@ -61,8 +61,9 @@
                     %a.top{ :href => global_url_for("/links") }
                       Ссилки
                     %br
-                    %a.top{ :href => 'http://weather.' + @clean_host }
-                      Погода
+                    = link_to 'Погода', { :controller => :weather, :action => :index }, :class => 'top'
+                    %br
+                    = link_to 'Карта', { :controller => :map, :action => :index }, :class => 'top'
                     %br
                 %tr
                   %td{ :width => "181" }

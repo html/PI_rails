@@ -18,7 +18,6 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'httparty'
   config.gem 'barometer'
-  config.gem 'mbleigh-subdomain-fu', :source => "http://gems.github.com", :lib => "subdomain-fu"
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
