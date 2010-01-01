@@ -4,6 +4,7 @@
 - content_for :head do
   :javascript
     $(function(){
+      //Preloading Google and FancyBox images
       var images = [
         '/images/fancybox/fancy_progress.png',
         '/images/fancybox/fancy_closebox.png',
@@ -19,7 +20,14 @@
         '/images/fancybox/fancy_shadow_nw.png',
         '/images/fancybox/fancy_title_left.png',
         '/images/fancybox/fancy_title_main.png',
-        '/images/fancybox/fancy_title_right.png'
+        '/images/fancybox/fancy_title_right.png',
+
+        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw3.png',
+        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iws3.png',
+        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_close.gif',
+        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_plus.gif',
+        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_fullscreen.gif',
+        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_minus.gif'
       ];
 
       for(var i=0;i< images.length;i++){
