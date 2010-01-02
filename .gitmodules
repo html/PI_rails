@@ -1,3 +1,9 @@
 [submodule "vendor/plugins/once"]
 	path = vendor/plugins/once
 	url = git://github.com/html/once.git
+[submodule "vendor/plugins/actions"]
+	path = vendor/plugins/actions
+	url = git://github.com/html/actions.git
+[submodule "vendor/plugins/rails_simple_crud_actions"]
+	path = vendor/plugins/rails_simple_crud_actions
+	url = git://github.com/html/rails_simple_crud_actions.git

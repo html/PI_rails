@@ -9,7 +9,7 @@ body {
 	background:url(/images/menu/button_r.jpg);
 	background-position:top right;
 	background-repeat:no-repeat;
-	padding-right:43px;
+    padding:0 43px 0 0;
 	float:left;
 	outline:none;
 	text-decoration:none;

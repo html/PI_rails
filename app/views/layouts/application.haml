@@ -56,9 +56,7 @@
                 %span
                   Статті
               %br
-              %a.button{ :href => global_url_for("/links") }
-                %span
-                  Ссилки
+              = link_to '<span>Посилання</span>', { :controller => :links, :action => :index }, :class => 'button'
               %br
               = link_to '<span>Погода</span>', { :controller => :weather, :action => :index }, :class => 'button'
               %br
