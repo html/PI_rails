@@ -6,8 +6,8 @@
     
     %meta{ :name => "viewport", :content => "initial-scale=1.0, user-scalable=no" }
 
-    %meta{ :name => "keywords", :content => "" }
-    %meta{ :name => "description", :content => "" }
+    %meta{ :name => "keywords", :content => "#{yield :keywords}" }
+    %meta{ :name => "description", :content => "#{yield :description}" }
     = stylesheet_link_tag 'global', 'dojo'
     = yield(:head) 
   %body{ :topmargin => "0", :bgcolor => "#488EC2" }
