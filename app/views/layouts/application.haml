@@ -8,7 +8,7 @@
 
     %meta{ :name => "keywords", :content => "#{yield :keywords}" }
     %meta{ :name => "description", :content => "#{yield :description}" }
-    = stylesheet_link_tag 'global', 'dojo'
+    = stylesheet_link_tag 'global', 'dojo', 'menu'
     = yield(:head) 
   %body{ :topmargin => "0", :bgcolor => "#488EC2" }
     %table{ :cellspacing => "0", :border => "0", :align => "center", :height => "30", :cellpadding => "0", :width => "960" }
@@ -37,39 +37,33 @@
             \&nbsp;
         %td{ :align => "center", :valign => "top", :width => "915", :bgcolor => "#FFFFFF" }
           %div
-            %div#leftmenu.fl{ :style => 'padding:10px;0px;margin:0 0 0 8px' }
+            %div#leftmenu.fl{ :style => 'padding:10px;0px;margin:0 0 0 8px;width: 181px;' }
               /
                 begin menu table
-              %table{ :cellspacing => "0", :cellpadding => "0", :width => "181" }
-                %tr
-                  %td{ :width => "181" }
-                    %img.fl{ :src => "/images/menu_1.gif", :height => "34", :width => "181" }
-                %tr
-                  %td{ :background => "/images/menu_2.gif", :width => "181", :align => "left" }
-                    %a.top{ :href => global_url_for("/") }
-                      Головна
-                    %br
-                    %a.top{ :href => global_url_for("/forum") }
-                      Форум
-                    %br
-                    %a.top{ :href => global_url_for("/gallery") }
-                      Галерея
-                    %br
-                    %a.top{ :href => global_url_for("/articles") }
-                      Статті
-                    %br
-                    %a.top{ :href => global_url_for("/links") }
-                      Ссилки
-                    %br
-                    = link_to 'Погода', { :controller => :weather, :action => :index }, :class => 'top'
-                    %br
-                    = link_to 'Карта', { :controller => :map, :action => :index }, :class => 'top'
-                    %br
-                %tr
-                  %td{ :width => "181" }
-                    %img{ :src => "/images/menu_3.gif", :height => "34", :width => "181" }
-              /
-                end memu table
+              %a.button{ :href => global_url_for("/") }
+                %span
+                  Головна
+              %br
+              %a.button{ :href => global_url_for("/forum") }
+                %span
+                  Форум
+              %br
+              %a.button{ :href => global_url_for("/gallery") }
+                %span
+                  Галерея
+              %br
+              %a.button{ :href => global_url_for("/articles") }
+                %span
+                  Статті
+              %br
+              %a.button{ :href => global_url_for("/links") }
+                %span
+                  Ссилки
+              %br
+              = link_to '<span>Погода</span>', { :controller => :weather, :action => :index }, :class => 'button'
+              %br
+              = link_to '<span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button'
+              %br
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
               = yield
         %td{ :background => "/images/right.gif", :width => "17" }
