@@ -8,6 +8,6 @@ class Link < ActiveRecord::Base
   end
 
   def self.all
-    find(:all, :conditions => { :public => true })
+    find(:all, :conditions => { :public => 1 })
   end
 end
