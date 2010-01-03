@@ -6,10 +6,10 @@
   = javascript_include_tag 'jquery/jqModal', 'jquery/jquery.form', 'jquery/jquery.scrollTo'
   %style{ :type => 'text/css' }
     :sass
-      a
+      a.link
         color: blue
         padding: 3px 10px
-      a:hover
+      a.link:hover
         color: white
         background-color: blue
         text-decoration: none
@@ -56,7 +56,7 @@
         color: white
 .clear
 - @links.each do |item|
-  = link_to h([item.description, item.value].join ' - '), item.value, :target => '_blank'
+  = link_to h([item.description, item.value].join ' - '), item.value, :target => '_blank', :class => 'link'
   .clear
 
 .cloud.center{ :align => 'center' }
@@ -68,7 +68,7 @@
       %br
       Ви можете додати своє посилання в цей розділ
       %br
-      = link_to_void 'Додати ссилку', :class => 'jqm'
+      = link_to_void 'Додати ссилку', :class => 'jqm link'
     .just_for_ie
 
 :javascript
