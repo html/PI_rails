@@ -97,8 +97,8 @@
           %td= text_field 'link', 'value', :class => 'w200'
           %td.for_error{ :width => '180' }
     %br
-    = link_to_void 'Зберегти', :class => 'save'
-    = link_to_void 'Відмінити', :class => 'jqmClose'
+    = link_to_void 'Зберегти', :class => 'save link'
+    = link_to_void 'Відмінити', :class => 'jqmClose link'
 :javascript
   (function(saveButton, form, url){
     $(saveButton).click(function(){
