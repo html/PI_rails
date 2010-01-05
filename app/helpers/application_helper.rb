@@ -18,16 +18,6 @@ module ApplicationHelper
     @host + str
   end
 
-  def require_tooltips
-    require_jquery
-
-    once :tooltips do
-      content_for :head do
-        render :partial => '/tooltip'
-      end
-    end
-  end
-  
   def link_to_void(title, *args)
     link_to title, 'javascript:;', *args
   end

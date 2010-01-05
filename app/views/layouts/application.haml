@@ -8,8 +8,10 @@
 
     %meta{ :name => "keywords", :content => "#{yield :keywords}" }
     %meta{ :name => "description", :content => "#{yield :description}" }
-    = stylesheet_link_tag 'global', 'menu'
+    = stylesheet_link_tag 'global', 'menu', 'tooltip'
+    - require_jquery
     = yield(:head) 
+    = javascript_include_tag 'jquery/vtip'
   %body{ :topmargin => "0", :bgcolor => "#488EC2" }
     %table{ :cellspacing => "0", :border => "0", :align => "center", :height => "30", :cellpadding => "0", :width => "960" }
       %tr{ :height => "100" }
@@ -58,11 +60,11 @@
                 %span
                   Статті
               %br
-              = link_to '<span>Посилання</span>', { :controller => :links, :action => :index }, :class => 'button'
+              = link_to '<img src="/images/new.png" class="fl" style="margin:3px 0 0 5px"/><span>Посилання</span>', { :controller => :links, :action => :index }, :class => 'button tooltip', :title => 'Можна додати своє посилання'
               %br
               = link_to '<span>Погода</span>', { :controller => :weather, :action => :index }, :class => 'button'
               %br
-              = link_to '<span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button'
+              = link_to '<img src="/images/new.png" class="fl" style="margin:3px 0 0 5px"/><span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button tooltip', :title => 'На карту додано більшість вулиць'
               %br
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
               - flash.each do |name, msg|
