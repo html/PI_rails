@@ -67,7 +67,6 @@
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
               - flash.each do |name, msg|
                 %div{ :class => name }
-                  =name
                   =msg
               = yield
         %td{ :background => "/images/right.gif", :width => "17" }
