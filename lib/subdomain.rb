@@ -28,7 +28,12 @@ module ActionController
       end
 
       def recognize(request)
-        params = recognize_path(request.url, extract_request_environment(request))
+        env = extract_request_environment(request)
+        begin
+          params = recognize_path(request.url, env)
+        rescue RoutingError
+          params = recognize_path(request.path, env)
+        end
         request.path_parameters = params.with_indifferent_access
         "#{params[:controller].to_s.camelize}Controller".constantize
       end

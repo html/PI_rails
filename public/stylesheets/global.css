@@ -1,4 +1,5 @@
 
+body { padding:0;margin: 0; }
 .sp {font-size:1px; color:#000000; text-align:center;}
 .authors {font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#000066; text-align:right; padding-right:10px;}
 .pagetitle {font-family:Verdana, Arial, Helvetica, sans-serif; font-size:18px; color:#FFAB56; text-align:left; padding-left:10px;}
@@ -8,10 +9,11 @@ a:link.top {padding-left: 15px; font-family:tahoma; font-size:12px;color:black; 
 a:visited.top {padding-left: 15px; font-family:tahoma; font-size:12px; color:#FFAB56; text-decoration:none; font-weight:bold; text-align:left;}
 a:hover.top {padding-left: 15px; font-family:tahoma; font-size:12px; color:#FFAB56; text-decoration:underline; font-weight:bold; text-align}
 .joke {text-align:left; color:#000000; font-family:comic sans ms; font-size:20px;}
+h1 {text-align:left; color:#000000; font-family:comic sans ms; font-size:20px;margin-top: 1.5em;line-height: 1.5em;font-weight: normal}
 .fl {float:left;}
 .fr {float:right;}
 .clear {clear:both;font-size:0;}
-.message { border:3px solid #ff9933; padding:3px;float:left; }
+.message, .notice { border:3px solid #ff9933; padding:3px;float:left; }
 .error {border:3px solid red; padding:3px; margin:0;float:left; }
 
 #dojoxLightboxDialog {
@@ -63,4 +65,8 @@ a:hover.top {padding-left: 15px; font-family:tahoma; font-size:12px; color:#FFAB
 
 .selected {
     border-color:blue;
+}
+
+img {
+  border: 0;
 }

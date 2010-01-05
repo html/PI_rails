@@ -1,0 +1,22 @@
+%style{ :type => 'text/css' }
+  :sass
+    .auth
+      background-image: url(/images/top/unauthorized.png)
+      width: 200px
+      height: 45px
+      padding: 5px 0 0 15px
+      text-align: center
+
+      a
+        color: white
+      a:hover
+        text-decoration: none
+- if current_user
+  .fr.auth
+    = current_user.username
+    = link_to 'Вийти', logout_url, :class => 'fr'
+- else
+  .fr.auth
+    = link_to 'Увійти на сайт', login_url
+    %br
+    = link_to 'Зареєструватись', signup_url

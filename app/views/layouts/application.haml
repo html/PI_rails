@@ -8,7 +8,7 @@
 
     %meta{ :name => "keywords", :content => "#{yield :keywords}" }
     %meta{ :name => "description", :content => "#{yield :description}" }
-    = stylesheet_link_tag 'global', 'dojo', 'menu'
+    = stylesheet_link_tag 'global', 'menu'
     = yield(:head) 
   %body{ :topmargin => "0", :bgcolor => "#488EC2" }
     %table{ :cellspacing => "0", :border => "0", :align => "center", :height => "30", :cellpadding => "0", :width => "960" }
@@ -18,8 +18,10 @@
             \&nbsp;
         %td{ :background => "/images/grad.gif", :align => "left", :valign => "middle", :width => "915" }
           %img{ :src => "/images/gerb.jpg", :style => " float:left;margin-left:20px;" }
-          %p.joke
-            =h yield(:title)
+          .fl
+            %h1
+              =h yield(:title)
+          = render :partial => '/user_info'
         %td{ :background => "/images/right.gif", :width => "17" }
           %p.sp
             \&nbsp;
@@ -63,6 +65,10 @@
               = link_to '<span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button'
               %br
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
+              - flash.each do |name, msg|
+                %div{ :class => name }
+                  =name
+                  =msg
               = yield
         %td{ :background => "/images/right.gif", :width => "17" }
           %p.sp
