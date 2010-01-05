@@ -2,17 +2,10 @@
 - add_url = url_for( :controller => :links, :action => :add )
 - require_jquery
 - content_for :head do
-  = stylesheet_link_tag 'jqModal'
+  = stylesheet_link_tag 'jqModal', 'link'
   = javascript_include_tag 'jquery/jqModal', 'jquery/jquery.form', 'jquery/jquery.scrollTo'
   %style{ :type => 'text/css' }
     :sass
-      a.link
-        color: blue
-        padding: 3px 10px
-      a.link:hover
-        color: white
-        background-color: blue
-        text-decoration: none
       h2
         margin: 0
       .w200
