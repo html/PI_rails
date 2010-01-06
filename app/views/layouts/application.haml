@@ -52,19 +52,17 @@
                 %span
                   Форум
               %br
-              %a.button{ :href => global_url_for("/gallery") }
-                %span
-                  Галерея
+              = link_to new_mark + '<span>Галерея</span>', { :controller => :photos, :action => :index }, :class => 'button tooltip', :title => 'Галерея оновилась'
               %br
               %a.button{ :href => global_url_for("/articles") }
                 %span
                   Статті
               %br
-              = link_to '<img src="/images/new.png" class="fl" style="margin:3px 0 0 5px"/><span>Посилання</span>', { :controller => :links, :action => :index }, :class => 'button tooltip', :title => 'Можна додати своє посилання'
+              = link_to new_mark + '<span>Посилання</span>', { :controller => :links, :action => :index }, :class => 'button tooltip', :title => 'Можна додати своє посилання'
               %br
               = link_to '<span>Погода</span>', { :controller => :weather, :action => :index }, :class => 'button'
               %br
-              = link_to '<img src="/images/new.png" class="fl" style="margin:3px 0 0 5px"/><span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button tooltip', :title => 'На карту додано більшість вулиць'
+              = link_to new_mark + '<span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button tooltip', :title => 'На карту додано більшість вулиць'
               %br
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
               - flash.each do |name, msg|

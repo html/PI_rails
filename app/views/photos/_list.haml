@@ -1,0 +1,5 @@
+- @photos.each do |item|
+  .fl.w100.h100.p5
+    .fr{ :style => 'position: absolute' }
+      = link_to image_tag('/images/icons/remove.png', :width => 20, :height => 20), :id => item.to_param, :action => :destroy
+    = link_to image_tag(item.image.url(:thumb), :alt => item.title), item.image.url, :class => 'fancy tooltip', :title => item.title, :rel => 'fancy'

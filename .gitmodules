@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/rails_simple_crud_actions"]
 	path = vendor/plugins/rails_simple_crud_actions
 	url = git://github.com/html/rails_simple_crud_actions.git
+[submodule "vendor/plugins/paperclip"]
+	path = vendor/plugins/paperclip
+	url = git://github.com/thoughtbot/paperclip.git
