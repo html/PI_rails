@@ -23,24 +23,3 @@
     .fr.h100.p5
       = link_to image_tag('/images/icons/add.png', :width => 50, :height => 50), new_article_path, :id => 'add_image', :class => 'tooltip', :title => 'Додати статтю'
   %div
-/
-  %table{ :cellspacing => 0, :cellpadding => 0, :width => '100%'}
-    %tr
-      %th Title
-      %th Content
-    - for article in @articles
-      %tr
-        %td{ :colspan => 5 }=image_tag "/images/quad/top/#{rand(6)+1}.png", :width => '100%'
-      %tr{ :style => 'background-color:#d7e5fa;', :height => 50 }
-        %td= h article.title
-        %td= h article.content
-        - if is_admin
-          %td= link_to 'Show', article
-          %td= link_to 'Edit', edit_article_path(article)
-          %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
-      %tr
-        %td{ :colspan => 5 }=image_tag "/images/quad/bottom/#{rand(6)+1}.png", :width => '100%'
-      %tr
-        %td{ :height => 5 }
-
-  %p= link_to "New Article", new_article_path
