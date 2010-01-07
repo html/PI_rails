@@ -54,9 +54,7 @@
               %br
               = link_to new_mark + '<span>Галерея</span>', { :controller => :photos, :action => :index }, :class => 'button tooltip', :title => 'Галерея оновилась'
               %br
-              %a.button{ :href => global_url_for("/articles") }
-                %span
-                  Статті
+              = link_to '<span>Статті</span>', { :controller => :articles, :action => :index }, :class => 'button', :title => 'Статті'
               %br
               = link_to new_mark + '<span>Посилання</span>', { :controller => :links, :action => :index }, :class => 'button tooltip', :title => 'Можна додати своє посилання'
               %br

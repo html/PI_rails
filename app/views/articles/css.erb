@@ -1,0 +1,23 @@
+.article {
+width: 490px;
+}
+
+.article:hover {
+  font-weight: bold;
+}
+.article .item {
+  background-color: #d7e5fa;
+  padding: 15px;
+}
+<% ['top','bottom'].each do |type| %>
+  <% for i in 1..6 do %>
+.<%= type + i.to_s %> {
+  background: url(/images/quad/<%=type%>/<%=i%>.png) no-repeat 0 0;
+  height: <%= type == 'top' ? (i > 3 ? (i - 3) * 5 : i * 5 ) : 15%>px;
+  width: 490px;
+}
+.article:hover .<%= type + i.to_s %> {
+  background: url(/images/quad/hover_<%=type%>/<%=i%>.png) no-repeat 0 0;
+}
+  <% end %>
+<% end %>

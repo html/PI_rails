@@ -1,0 +1,6 @@
+- link_text = capture do
+  %div{ :class => 'top' + (rand(6) + 1).to_s }
+  .item
+    = content
+  %div{ :class => 'bottom' + (rand(6) + 1).to_s }
+= link_to link_text, item_url, :class => 'article fl'
