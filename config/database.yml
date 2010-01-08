@@ -21,10 +21,20 @@ production:
   pool: 5
   timeout: 5000
 
-phpbb:
+phpbb_database_development:
   adapter: mysql
   host: localhost
   user: root
   database: pi
 
+phpbb_database_test:
+  adapter: sqlite3
+  database: db/phpbb_test.sqlite3
+  pool: 5
+  timeout: 5000
 
+phpbb_database_production:
+  adapter: mysql
+  host: localhost
+  user: root
+  database: pi

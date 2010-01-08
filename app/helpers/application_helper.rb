@@ -43,6 +43,6 @@ module ApplicationHelper
   end
 
   def is_admin
-    true
+    @current_user && @current_user.group_id == 5
   end
 end

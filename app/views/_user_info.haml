@@ -6,17 +6,26 @@
       height: 45px
       padding: 5px 0 0 15px
       text-align: center
+      color: white
 
       a
         color: white
       a:hover
         text-decoration: none
+    .p10
+      padding: 10px
+    .w100
+      width: 100px
 - if current_user
   .fr.auth
-    = current_user.username
-    = link_to 'Вийти', logout_url, :class => 'fr'
+    .fr.p10
+      = link_to 'Вийти', global_url_for("/forum/ucp.php?mode=logout&sid=" + cookies["#{PHPBB_AUTH_COOKIE_NAME}_sid"]), :class => 'fr'
+    .fr.w100
+      = @current_user.username
+      %br
+      = link_to 'профайл', global_url_for('/forum/ucp.php?i=164')
 - else
   .fr.auth
-    = link_to 'Увійти на сайт', login_url
+    = link_to 'Увійти на сайт', global_url_for("/forum/ucp.php?mode=login")
     %br
-    = link_to 'Зареєструватись', signup_url
+    = link_to 'Зареєструватись', global_url_for("/forum/ucp.php?mode=register")
