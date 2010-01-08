@@ -5,26 +5,6 @@
 - content_for :description do
   Погода в Піщанці та Піщанському  районі, прогноз погоди в Вінницькій області,
   Погода в Песчанке и Песчанском районе, прогноз погоды в Винницкой области
-.weather
-  - @weather.reverse.each do |item|
-    %div.item
-      %div.left.w200
-        %b
-          = item.get_date
-      %div.left
-        - if item.conditions
-          = image_tag item.get_image_src, :class => 'img'
-      %div.left
-        Температура:
-        = item.get_temperature
-        - if item.humidity
-          %br
-          Вологість повітря:
-          = item.humidity
-        - if item.has_wind? 
-          %br
-          Вітер
-          = item.get_wind
 - content_for :head do
   %style{ :type => 'text/css' }
     :sass
@@ -39,11 +19,34 @@
       .left
         padding: 5px
         float: left
-* Дані про погоду взяті з http://google.com/
+.fl.wcenter
+  .weather
+    - @weather.reverse.each do |item|
+      %div.item
+        %div.left.w200
+          %b
+            = item.get_date
+        %div.left
+          - if item.conditions
+            = image_tag item.get_image_src, :class => 'img'
+        %div.left
+          Температура:
+          = item.get_temperature
+          - if item.humidity
+            %br
+            Вологість повітря:
+            = item.humidity
+          - if item.has_wind? 
+            %br
+            Вітер
+            = item.get_wind
+  * Дані про погоду взяті з http://google.com/
 
-%h2 Ви також можете подивитись інформацію про погоду в альтернативних джерелах:
-%ul
-  %li=link_to('Піщанка на http://www.gismeteo.ua/', 'http://www.gismeteo.ua/ua/city/daily/12403/', :target => '_blank')
-  %li=link_to('Піщанка на http://www.meteoprog.ua/', 'http://www.meteoprog.ua/ua/weather/Peschanka/', :target => '_blank')
-  %li=link_to('Піщанка на http://rp5.ua/', 'http://rp5.ua/203/ua#map', nil, :target => '_blank')
-  %li=link_to('Піщанка на http://weather.in.ua/', 'http://weather.in.ua/ua/vinnickaja/20773', nil, :target => '_blank')
+  %h2 Ви також можете подивитись інформацію про погоду в альтернативних джерелах:
+  %ul
+    %li=link_to('Піщанка на http://www.gismeteo.ua/', 'http://www.gismeteo.ua/ua/city/daily/12403/', :target => '_blank')
+    %li=link_to('Піщанка на http://www.meteoprog.ua/', 'http://www.meteoprog.ua/ua/weather/Peschanka/', :target => '_blank')
+    %li=link_to('Піщанка на http://rp5.ua/', 'http://rp5.ua/203/ua#map', nil, :target => '_blank')
+    %li=link_to('Піщанка на http://weather.in.ua/', 'http://weather.in.ua/ua/vinnickaja/20773', nil, :target => '_blank')
+.fr
+  = render :partial => '/poll'

@@ -1,0 +1,49 @@
+- require_jquery
+- content_for :head do
+  %style{ :type => 'text/css' }
+    :sass
+      .w110 
+        width: 110px
+        float: left
+        margin: 0 auto
+      #poll
+        width: 180px
+
+        .top
+          height: 15px
+          background: url(/images/poll/top.png) no-repeat 0 0
+        .bottom
+          height: 10px
+          background: url(/images/poll/bottom.png) no-repeat 0 0
+        .content
+          background: #D7E5FA
+          padding: 10px
+        %h4
+          margin: 0
+        label
+          display: block
+          border: 1px solid #D7E5FA
+          margin: 0
+        label:hover
+          border: 1px solid #2c618f
+  = stylesheet_link_tag 'link'
+
+%div#poll
+  .top
+  .content
+    - if @poll
+      %h4
+        = h @poll.poll_title
+      .clear
+      - form_tag poll_view_result_url(poll.forum_id, poll.topic_id), :id => 'voteform' do
+        - for i in @poll.phpbb_poll_options
+          %label
+            = radio_button_tag 'vote_id[]', i.poll_option_id, false
+            = h i.poll_option_text
+        %input{ :type => 'hidden', :name => 'update', :value => 'update' }
+        = link_to_function 'Проголосувати', "$('#voteform').submit()", :class => 'link w110'
+        = link_to 'Результати', poll_view_result_url(poll.forum_id, poll.topic_id), :class => 'link w110'
+    - else
+      Немає нових опитувань
+    .clear
+  .bottom

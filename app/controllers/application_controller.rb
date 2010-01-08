@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :assign_host
   before_filter :set_current_user
+  before_filter :assign_poll
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -37,5 +38,9 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     @current_user = current_user
+  end
+  
+  def assign_poll
+    @poll = PhpbbTopics.last_poll(cookies, @current_user)
   end
 end

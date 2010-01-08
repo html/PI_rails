@@ -18,8 +18,8 @@
         , додати статтю
     = render :partial => 'item', :locals => { :item_url => is_admin ? new_article_path : articles_path, :content => content }
 
-.fl{ :style => 'width: 180px;margin-left:10px;' }
-  - if is_admin
-    .fr.h100.p5
-      = link_to image_tag('/images/icons/add.png', :width => 50, :height => 50), new_article_path, :id => 'add_image', :class => 'tooltip', :title => 'Додати статтю'
-  %div
+- if is_admin
+  .fr.h100.p5
+    = link_to image_tag('/images/icons/add.png', :width => 50, :height => 50), new_article_path, :id => 'add_image', :class => 'tooltip', :title => 'Додати статтю'
+.fr{ :style => 'width: 180px;margin-left:10px;' }
+  = render :partial => '/poll'

@@ -15,14 +15,18 @@
       .p5
         padding: 5px
 .clear
+.fl.wcenter
+  - if !@photos.empty?
+    #photos
+      = render :partial => 'list'
+  - else
+    Немає фотографій
+
 - if is_admin
-  .fr.h100.p5
+  .fr
     = link_to_void image_tag('/images/icons/add.png', :width => 50, :height => 50), :id => 'add_image', :class => 'tooltip', :title => 'Додати фото'
-- if !@photos.empty?
-  #photos
-    = render :partial => 'list'
-- else
-  Немає фотографій
+.fr
+  = render :partial => '/poll'
 
 :javascript
   $(function(){

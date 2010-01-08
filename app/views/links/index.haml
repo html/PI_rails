@@ -48,21 +48,24 @@
       .cloud_inner a
         color: white
 .clear
-- @links.each do |item|
-  = link_to h([item.description, item.value].join ' - '), item.value, :target => '_blank', :class => 'link'
-  .clear
+.fl.wcenter
+  - @links.each do |item|
+    = link_to h([item.description, item.value].join ' - '), item.value, :target => '_blank', :class => 'link'
+    .clear
 
-.cloud.center{ :align => 'center' }
-  .cloud_outer
-    .cloud_inner
-      Є корисна ссилка пов'язана з ресурсом ?
-      %br
-      Є подібний ресурс і хочете обмінятись посиланнями ?
-      %br
-      Ви можете додати своє посилання в цей розділ
-      %br
-      = link_to_void 'Додати ссилку', :class => 'jqm link'
-    .just_for_ie
+  .cloud.center{ :align => 'center' }
+    .cloud_outer
+      .cloud_inner
+        Є корисна ссилка пов'язана з ресурсом ?
+        %br
+        Є подібний ресурс і хочете обмінятись посиланнями ?
+        %br
+        Ви можете додати своє посилання в цей розділ
+        %br
+        = link_to_void 'Додати ссилку', :class => 'jqm link'
+      .just_for_ie
+.fr
+  = render :partial => '/poll'
 
 :javascript
   $(function(){
