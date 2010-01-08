@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   rescue_from 'ActionController::RoutingError', :with => :not_found
 
   helper_method :current_user
-  @@local_domain = 'http://pi.ua'
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :assign_host
@@ -24,8 +23,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   protected
   def assign_host
-    @clean_host = request.env['SERVER_NAME'] == 'pi.ua' ? 'pi.ua' : request.env['SERVER_NAME'].sub(/^\w+\./, '')
-    @host = request.env['SERVER_NAME'] == 'pi.ua' ? @@local_domain : 'http://' +  @clean_host
+    @host = 'http://' +  APPLICATION_HOST
   end
 
   def access_denied

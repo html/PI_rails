@@ -47,14 +47,14 @@ module ApplicationHelper
   end
 
   def forum_url
-    sprintf("http://forum.%s/", @clean_host)
+    sprintf("http://forum.%s/", APPLICATION_HOST)
   end
 
   def poll_view_result_url(forum_id, topic_id)
-    sprintf("http://forum.%s/viewtopic.php?f=%s&t=%s&start=0&view=viewpoll", @clean_host, forum_id, topic_id)
+    sprintf("http://forum.%s/viewtopic.php?f=%s&t=%s&start=0&view=viewpoll", APPLICATION_HOST, forum_id, topic_id)
   end
 
   def poll_view_result_url(forum_id, topic_id)
-    sprintf("http://forum.%s/viewtopic.php?f=%s&t=%s", @clean_host, forum_id, topic_id)
+    sprintf("http://forum.%s/viewtopic.php?f=%s&t=%s", APPLICATION_HOST, forum_id, topic_id)
   end
 end
