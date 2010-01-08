@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 require 'create_json'
+require 'phpbb_extension'
 
 class ApplicationController < ActionController::Base
   include PhpbbAuth
