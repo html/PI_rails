@@ -7,7 +7,14 @@ class PhpbbTopics < ActiveRecord::Base
   end
 
   def self.last_poll(cookies, user = nil)
-    find(:first, :order => 'poll_start DESC', :conditions => 'poll_start > 0 AND topic_id NOT IN(' + (cookies_to_forbidden_poll_ids(cookies) + forbidden_poll_ids(user)).join(',') + ')')
+    ids = (cookies_to_forbidden_poll_ids(cookies) + forbidden_poll_ids(user))
+    where_condition = 'poll_start > 0'  
+
+    if !ids.empty?
+      where_condition += ' AND topic_id NOT IN(' + ids.join(',') + ')'
+    end
+
+    find(:first, :order => 'poll_start DESC', :conditions => where_condition)
   end
 
   def self.cookies_to_forbidden_poll_ids(cookies)
