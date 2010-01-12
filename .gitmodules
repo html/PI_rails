@@ -6,7 +6,13 @@
 	url = git://github.com/html/actions.git
 [submodule "vendor/plugins/rails_simple_crud_actions"]
 	path = vendor/plugins/rails_simple_crud_actions
-	url = git://github.com/html/rails_simple_crud_actions.git
+	url = git@github.com:html/rails_simple_crud_actions.git
 [submodule "vendor/plugins/paperclip"]
 	path = vendor/plugins/paperclip
 	url = git://github.com/thoughtbot/paperclip.git
+[submodule "vendor/plugins/searchlogic"]
+	path = vendor/plugins/searchlogic
+	url = git://github.com/binarylogic/searchlogic.git
+[submodule "vendor/plugins/acts_as_taggable_on"]
+	path = vendor/plugins/acts_as_taggable_on
+	url = git://github.com/mbleigh/acts-as-taggable-on.git

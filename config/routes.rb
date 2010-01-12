@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -38,12 +39,18 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
-  map.subdomain_connect ':controller.:host/delete/:id', :action => :destroy
+  map.connect '/search', :action => 'search', :controller => 'ads'
+  map.subdomain_connect ':controller.:host/new/:tag_list', :action => 'new'
+  map.subdomain_connect ':controller.:host/create/:tag_list', :action => 'create'
+  map.subdomain_connect ':controller.:host/by_tag/:tag', :action => 'by_tag'
+  map.subdomain_connect ':controller.:host/delete/:id', :action => 'destroy'
   map.subdomain_connect ':controller.:host/:action/:id'
   map.root :controller => 'links'
-  map.photos '/', :controller => 'photos', :action => :index
-  map.article '/show/:id', :controller => 'articles', :action => :show
-  map.articles '/', :controller => 'articles', :action => :index
+  map.photos '/', :controller => 'photos', :action => 'index'
+  map.article '/show/:id', :controller => 'articles', :action => 'show'
+  map.articles '/', :controller => 'articles', :action => 'index'
+  map.ad '/show/:id', :controller => 'ads', :action => 'show'
+  map.ads '/', :controller => 'ads', :action => 'index'
   #Following routes do not work
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'

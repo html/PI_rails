@@ -1,0 +1,6 @@
+- title "Додати оголошення" + (params[:tag] ? " в розділ " + t(params[:tag]) : '')
+- stylesheet 'errors'
+
+.fl{ :style => 'width: 490px' }
+  = render :partial => 'form'
+= render :partial => 'right'

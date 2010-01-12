@@ -20,6 +20,7 @@ Rails::Initializer.run do |config|
   config.gem 'barometer'
   config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9" 
   config.gem "mattfawcett-phpbb-auth", :lib => "phpbb_auth", :source => "http://gems.github.com"
+  config.gem 'russian', :source => 'http://gemcutter.org'
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"

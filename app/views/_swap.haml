@@ -1,0 +1,12 @@
+:javascript
+  $(function(){
+    $('.swap').each(function(){
+      (new Image()).src = $(this).attr('hover_image');
+      $(this).hover(function(){
+        $.data(this, 'waiting_image', this.src);
+        this.src = $(this).attr('hover_image');
+      }, function(){
+        this.src = $.data(this, 'waiting_image');
+      })
+    });
+  });

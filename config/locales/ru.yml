@@ -1,0 +1,32 @@
+ru:
+  activerecord:
+    models: 
+      ad: Оголошення
+    attributes:
+      title: Заголовок
+      ad:
+        title: Заголовок
+        content: Зміст
+        tag_list: Розділ
+        contacts: Контактні дані
+    errors:
+      messages:
+        empty: "не може бути пустим"
+        blank: "не може бути пустим"
+      template:
+        header:
+          one:   "{{model}}: збереження не вийшло через {{count}} помилку"
+          few:   "{{model}}: збереження не вийшло через {{count}} помилки"
+          many:  "{{model}}: збереження не вийшло через {{count}} помилок"
+          other: "{{model}}: збереження не вийшло через {{count}} помилки"
+        body: Проблеми виникли з наступними полями
+  buy: куплю ...
+  sell: продам ...
+  lost: пропав ...
+  others: інші теми
+  hire: пропоную роботу
+  found: знайшовся ... поверну хазяїну
+  work: шукаю роботу
+  Ad was successfully created: Оголошення було успішно додано
+  Ad was successfully updated: Оголошення було успішно відредаговано
+  Ad was successfully destroyed: Оголошення було успішно видалено

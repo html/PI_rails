@@ -1,2 +1,3 @@
 require 'subdomain'
-ActionController::Routing::HostSegment::host = 'localhost'
+APPLICATION_HOST =  'pi.ua:3000'
+ActionController::Routing::HostSegment::host = APPLICATION_HOST

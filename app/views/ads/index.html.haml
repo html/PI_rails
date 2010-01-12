@@ -1,0 +1,40 @@
+- title 'Піщанська дошка оголошень'
+- content_for :head do
+  %link{ :rel => 'stylesheet', :href => url_for(:controller => :articles, :action => :css ) }
+  = stylesheet_link_tag 'ads', 'link'
+.clear
+.fl.w362
+  .fr.p
+    .search
+      %b Шукати оголошення
+      = render :partial => 'search'
+  .fr.p
+    = link_to_image :buy
+  .fr.p
+    = link_to_image :work
+  .fr.p
+    = link_to_image :lost
+.fl.with_separator
+  .fl.p
+    = link_to image_tag('/images/ads/add.png', :hover_image => '/images/hover_ads/add.png', :class => 'swap'), url_for( :controller => :ads, :action => 'new')
+  .clear
+  .fl.p
+    = link_to_image :sell
+  .clear
+  .fl.p
+    = link_to_image :hire
+  .clear
+  .fl.p
+    = link_to_image :found
+.clear
+= link_to_image :others, {}, { :class => 'center', :style => 'width: 267px;height: 43px;display:block;margin-top:4px' }
+= render :partial => '/swap'
+:javascript
+  $(function(){
+    (new Image()).src = '/images/hover_ads/search.png';
+    $('.search').hover(function(){
+      $(this).addClass('search_hover');
+    }, function(){
+      $(this).removeClass('search_hover');
+    });
+  });

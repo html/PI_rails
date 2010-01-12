@@ -1,0 +1,16 @@
+- title @ad.title
+
+.fl
+  %h5 Оголошення:
+  = h @ad.content
+  %h5 Контакти:
+  = h @ad.contacts
+
+.fr
+  - if is_admin
+    .fr.h100.p5
+      = link_to image_tag('/images/icons/add.png', :width => 50, :height => 50), new_ad_path, :class => 'tooltip fl', :title => 'Додати ще одне оголошення'
+      = link_to image_tag('/images/icons/edit.png', :width => 50, :height => 50), edit_ad_path(@ad),  :class => 'tooltip fl', :title => 'Редагувати оголошення'
+      = link_to image_tag('/images/icons/remove.png', :width => 50, :height => 50), { :action => :destroy, :id => @ad },  :class => 'tooltip fl', :title => 'Видалити оголошення', :confirm => 'Ви впевнені ?'
+  .clear
+  = render :partial => 'right'

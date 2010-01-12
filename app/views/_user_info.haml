@@ -19,13 +19,13 @@
 - if current_user
   .fr.auth
     .fr.p10
-      = link_to 'Вийти', global_url_for("/forum/ucp.php?mode=logout&sid=" + cookies["#{PHPBB_AUTH_COOKIE_NAME}_sid"]), :class => 'fr'
+      = link_to 'Вийти', (forum_url + "ucp.php?mode=logout&sid=" + cookies["#{PHPBB_AUTH_COOKIE_NAME}_sid"]), :class => 'fr'
     .fr.w100
       = @current_user.username
       %br
-      = link_to 'профайл', global_url_for('/forum/ucp.php?i=164')
+      = link_to 'профайл', (forum_url + 'ucp.php?i=164')
 - else
   .fr.auth
-    = link_to 'Увійти на сайт', global_url_for("/forum/ucp.php?mode=login")
+    = link_to 'Увійти на сайт', (forum_url + "ucp.php?mode=login")
     %br
-    = link_to 'Зареєструватись', global_url_for("/forum/ucp.php?mode=register")
+    = link_to 'Зареєструватись', (forum_url + "ucp.php?mode=register")

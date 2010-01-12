@@ -1,0 +1,24 @@
+- form_for @ad, :url => defined?(url) ? url : url_for(:action => :create, :tag_list => params[:tag_list]) do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  - if !params[:tag_list]
+    %p
+      = f.label :tag_list
+      %br
+      = f.select :tag_list, tags_options
+  - else
+    Розділ: 
+    = h t(params[:tag_list])
+  %p
+    = f.label :content
+    %br
+    = f.text_area :content, :rows => 5
+  %p
+    = f.label :contacts
+    %br
+    = f.text_area :contacts, :rows => 5
+  %p
+    = f.submit "Зберегти оголошення"

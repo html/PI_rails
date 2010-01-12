@@ -39,6 +39,8 @@ class ApplicationController < ActionController::Base
   end
   
   def assign_poll
-    @poll = PhpbbTopics.last_poll(cookies, @current_user)
+    if RAILS_ENV != 'test'
+      @poll = PhpbbTopics.last_poll(cookies, @current_user)
+    end
   end
 end

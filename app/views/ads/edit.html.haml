@@ -1,0 +1,8 @@
+- title "Edit Ads"
+
+= render :partial => 'form', :locals => { :url => { :action => :update, :id => @ad.to_param }  }
+
+%p
+  = link_to "Show", ad_path(@ad)
+  |
+  = link_to "View All", ads_path

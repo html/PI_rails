@@ -21,7 +21,7 @@
         %td{ :background => "/images/grad.gif", :align => "left", :valign => "middle", :width => "915" }
           %img{ :src => "/images/gerb.jpg", :style => " float:left;margin-left:20px;" }
           .fl
-            %h1
+            %h1{ :style => 'white-space: inherit;width:590px' }
               =h yield(:title)
           = render :partial => '/user_info'
         %td{ :background => "/images/right.gif", :width => "17" }
@@ -52,6 +52,8 @@
                 %span
                   Форум
               %br
+              = link_to new_mark + '<span style="font-size:12px">Оголошення</span>', { :controller => :ads, :action => :index }, :class => 'button tooltip', :title => 'Вперше на сайті - піщанські оголошення'
+              %br
               = link_to new_mark + '<span>Галерея</span>', { :controller => :photos, :action => :index }, :class => 'button tooltip', :title => 'Галерея оновилась'
               %br
               = link_to '<span>Статті</span>', { :controller => :articles, :action => :index }, :class => 'button', :title => 'Статті'
@@ -65,7 +67,8 @@
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
               - flash.each do |name, msg|
                 %div{ :class => name }
-                  =msg
+                  =t(msg)
+                .clear
               = yield
         %td{ :background => "/images/right.gif", :width => "17" }
           %p.sp
