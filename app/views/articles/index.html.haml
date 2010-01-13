@@ -8,7 +8,7 @@
       - content = capture do
         = article.title
         %br
-        = simple_format truncate(article.content)
+        = truncate(strip_tags(article.content))
       = render :partial => 'item', :locals => { :item_url => article, :content => content }
       .clear
   - else
