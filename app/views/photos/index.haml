@@ -22,10 +22,11 @@
   - else
     Немає фотографій
 
-- if is_admin
-  .fr
-    = link_to_void image_tag('/images/icons/add.png', :width => 50, :height => 50), :id => 'add_image', :class => 'tooltip', :title => 'Додати фото'
 .fr
+  - if is_admin
+    .fr
+      = link_to_void image_tag('/images/icons/add.png', :width => 50, :height => 50), :id => 'add_image', :class => 'tooltip', :title => 'Додати фото'
+  .clear
   = render :partial => '/poll'
 
 :javascript
