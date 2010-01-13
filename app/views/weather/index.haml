@@ -43,10 +43,6 @@
   * Дані про погоду взяті з http://google.com/
 
   %h2 Ви також можете подивитись інформацію про погоду в альтернативних джерелах:
-  %ul
-    %li=link_to('Піщанка на http://www.gismeteo.ua/', 'http://www.gismeteo.ua/ua/city/daily/12403/', :target => '_blank')
-    %li=link_to('Піщанка на http://www.meteoprog.ua/', 'http://www.meteoprog.ua/ua/weather/Peschanka/', :target => '_blank')
-    %li=link_to('Піщанка на http://rp5.ua/', 'http://rp5.ua/203/ua#map', nil, :target => '_blank')
-    %li=link_to('Піщанка на http://weather.in.ua/', 'http://weather.in.ua/ua/vinnickaja/20773', nil, :target => '_blank')
+  = file_contents 'weather_links'
 .fr
   = render :partial => '/poll'
