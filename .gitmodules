@@ -16,3 +16,6 @@
 [submodule "vendor/plugins/acts_as_taggable_on"]
 	path = vendor/plugins/acts_as_taggable_on
 	url = git://github.com/mbleigh/acts-as-taggable-on.git
+[submodule "vendor/plugins/phpbb_auth"]
+	path = vendor/plugins/phpbb_auth
+	url = git://github.com/mattfawcett/phpbb-auth.git
