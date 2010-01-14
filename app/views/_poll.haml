@@ -12,7 +12,7 @@
         - for i in @poll.phpbb_poll_options
           %label
             = radio_button_tag 'vote_id[]', i.poll_option_id, false
-            = h i.poll_option_text
+            = i.poll_option_text
         %input{ :type => 'hidden', :name => 'update', :value => 'update' }
         = link_to_function 'Проголосувати', "$('#voteform').submit()", :class => 'link w110'
         = link_to 'Результати', poll_view_result_url(poll.forum_id, poll.topic_id), :class => 'link w110'
