@@ -53,8 +53,4 @@ module ApplicationHelper
   def poll_view_result_url(forum_id, topic_id)
     sprintf("http://forum.%s/viewtopic.php?f=%s&t=%s&start=0&view=viewpoll", APPLICATION_HOST, forum_id, topic_id)
   end
-
-  def poll_view_result_url(forum_id, topic_id)
-    sprintf("http://forum.%s/viewtopic.php?f=%s&t=%s", APPLICATION_HOST, forum_id, topic_id)
-  end
 end
