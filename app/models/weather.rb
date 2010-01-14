@@ -12,7 +12,8 @@ class Weather < ActiveRecord::Base
     "Cloudy" => 8,
     "Snow Showers" => 9,
     "Chance of Rain" => 4,
-    "Partly Sunny" => 10
+    "Partly Sunny" => 10,
+    "Overcast" => 10
   }
 
   @@images = {
