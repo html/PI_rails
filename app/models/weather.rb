@@ -137,6 +137,10 @@ class Weather < ActiveRecord::Base
   end
 
   def get_image_src
-    sprintf('/images/weather/%s.png', @@images[conditions])
+    sprintf('/images/weather/%s/%s.png', self.class.weather_theme, @@images[conditions])
+  end
+
+  def self.weather_theme
+    'humano2'
   end
 end
