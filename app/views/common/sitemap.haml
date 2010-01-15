@@ -1,0 +1,8 @@
+!!! XML
+%sitemapindex{ :xmlns => sitemap_xmlns }
+  %sitemap 
+    %loc
+      = url_for( :controller => :articles, :action => :sitemap )
+    %lastmod
+      = w3c_date Article.last_modified
+

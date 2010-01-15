@@ -53,4 +53,8 @@ module ApplicationHelper
   def poll_view_result_url(forum_id, topic_id)
     sprintf("http://forum.%s/viewtopic.php?f=%s&t=%s&start=0&view=viewpoll", APPLICATION_HOST, forum_id, topic_id)
   end
+
+  def w3c_date(date)
+    date.utc.strftime("%Y-%m-%dT%H:%M:%S+00:00")
+  end
 end

@@ -40,6 +40,8 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect '/search', :action => 'search', :controller => 'ads'
+  map.subdomain_connect ':controller.:host/sitemap.xml', :action => 'sitemap'
+  map.subdomain_connect ':host/sitemap.xml', :controller => 'common', :action => 'sitemap'
   map.subdomain_connect ':controller.:host/new/:tag_list', :action => 'new'
   map.subdomain_connect ':controller.:host/create/:tag_list', :action => 'create'
   map.subdomain_connect ':controller.:host/by_tag/:tag', :action => 'by_tag'
