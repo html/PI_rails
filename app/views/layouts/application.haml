@@ -44,13 +44,9 @@
             %div#leftmenu.fl{ :style => 'padding:10px;0px;margin:0 0 0 8px;width: 181px;' }
               /
                 begin menu table
-              %a.button{ :href => @host }
-                %span
-                  Головна
+              = link_to '<span>Головна</span>', @host, :class => 'button'
               %br
-              %a.button{ :href => forum_url }
-                %span
-                  Форум
+              = link_to '<span>Форум</span>', forum_url, :class => 'button'
               %br
               = link_to new_mark + '<span style="font-size:12px">Оголошення</span>', { :controller => :ads, :action => :index }, :class => 'button tooltip', :title => 'Вперше на сайті - піщанські оголошення'
               %br
@@ -63,6 +59,8 @@
               = link_to '<span>Погода</span>', { :controller => :weather, :action => :index }, :class => 'button'
               %br
               = link_to new_mark + '<span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button tooltip', :title => 'На карту додано більшість вулиць'
+              %br
+              = link_to '<span style="padding-top:13px">Питання й відповіді</span>', { :controller => :faq }, :class => 'button'
               %br
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
               - flash.each do |name, msg|

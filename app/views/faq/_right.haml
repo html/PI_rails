@@ -1,0 +1,15 @@
+- stylesheet 'link', 'poll'
+.fr
+  %div#poll
+    .top
+    .content
+      %b Задати питання
+      - form_for :question, :url => { :action => :ask } do |f|
+        = f.text_area :question, :cols => 20, :rows => 5, :style => 'width:155px'
+        = link_to_function 'Надіслати питання', "$(this).parents('form').submit()", :class => 'link fl', :style => 'width:140px'
+        .clear
+      - if is_admin
+        = link_to 'Питання без відповідей', { :action => :unanswered }, :class => 'link fl', :style => 'width:140px'
+      .clear
+    .clear
+    .bottom

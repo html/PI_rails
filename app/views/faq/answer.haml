@@ -1,0 +1,10 @@
+- title 'Відповісти на питання "%s"' % question_for(@question, false)
+.fl
+  - form_for :answer, :url => { :action => 'answer', :id => @question } do |f|
+    %p
+      = f.label :answer
+      %br
+      = f.text_area :answer
+    %p
+      = f.submit 'Відповісти'
+= render :partial => 'right'

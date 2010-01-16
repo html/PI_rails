@@ -1,0 +1,11 @@
+- title 'Питання та відповіді'
+.fl
+  - @items.each do|item|
+    .fl
+      %b
+        = question_for(item)
+    .clear
+    .fl{ :style => 'padding-left: 20px' }
+      = h item.answer.answer
+    .clear
+= render :partial => 'right'
