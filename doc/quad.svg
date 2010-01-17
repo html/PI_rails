@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   width="210mm"
+   height="297mm"
+   sodipodi:docname="quad.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs5">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective9" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-height="749"
+     inkscape:window-width="1274"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     showgrid="true"
+     inkscape:zoom="1.2524652"
+     inkscape:cx="106.69393"
+     inkscape:cy="43.26552"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2382" />
+  </sodipodi:namedview>
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 40,77.362183 L 530,77.362183 L 40,72.362183 L 40,72.362183 L 40,77.362183 z"
+     id="path2406"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/top/1.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 40,57.362183 L 530,57.362183 L 40,47.362183 L 40,57.362183 z"
+     id="path2408"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/top/2.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 40,27.362183 L 530,27.362183 L 40,12.362183 L 40,27.362183 z"
+     id="path2410"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/top/3.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 530,157.36218 L 40.000003,157.36218 L 530,152.36218 L 530,152.36218 L 530,157.36218 z"
+     id="path3204"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/top/4.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 530,137.36218 L 40.000003,137.36218 L 530,127.36218 L 530,137.36218 z"
+     id="path3206"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/top/5.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 530,107.36218 L 40.000003,107.36218 L 530,92.362183 L 530,107.36218 z"
+     id="path3208"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/top/6.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 20.000003,747.36221 L 510,747.36221 L 20.000003,742.36221 L 20.000003,742.36221 L 20.000003,747.36221 z"
+     id="path2480"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/1.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 20.000003,727.36221 L 510,727.36221 L 20.000003,717.36221 L 20.000003,727.36221 z"
+     id="path2482"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/2.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 20.000003,697.36221 L 510,697.36221 L 20.000003,682.36221 L 20.000003,697.36221 z"
+     id="path2484"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/3.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 510,827.36221 L 20.000006,827.36221 L 510,822.36221 L 510,822.36221 L 510,827.36221 z"
+     id="path2486"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/4.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 510,807.36221 L 20.000006,807.36221 L 510,797.36221 L 510,807.36221 z"
+     id="path2488"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/5.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 510,777.36221 L 20.000006,777.36221 L 510,762.36221 L 510,777.36221 z"
+     id="path2490"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/6.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.94117647;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 510,697.36218 L 20,682.36218 L 20,697.36218 L 25,687.36218 L 510,697.36218 z"
+     id="path3280"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/3.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.94117647000000004;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 20,727.36218 L 20,717.36218 L 500,727.36218 L 25,722.36218 L 20,727.36218 z"
+     id="path3282"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/2.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.94117647000000004;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 20,747.36218 L 20,742.36218 L 500,747.36218 L 20,747.36218 z"
+     id="path3284"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/1.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 20,777.36218 L 510,762.36218 L 510,777.36218 L 505,767.36218 L 20,777.36218 z"
+     id="path3286"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/6.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 510,807.36218 L 510,797.36218 L 30,807.36218 L 505,802.36218 L 510,807.36218 z"
+     id="path3288"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/5.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 510,827.36218 L 510,822.36218 L 30,827.36218 L 510,827.36218 z"
+     id="path3290"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/4.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 19.999997,917.36213 L 510,917.36213 L 19.999997,922.36213 L 19.999997,922.36213 L 19.999997,917.36213 z"
+     id="path3310"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/1.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 19.999997,937.36213 L 510,937.36213 L 19.999997,947.36213 L 19.999997,937.36213 z"
+     id="path3312"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/2.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 19.999997,967.36213 L 510,967.36213 L 19.999997,982.36213 L 19.999997,967.36213 z"
+     id="path3314"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/3.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 510,837.36218 L 20,837.36218 L 510,842.36218 L 510,842.36218 L 510,837.36218 z"
+     id="path3316"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/4.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 510,857.36218 L 20,857.36218 L 510,867.36218 L 510,857.36218 z"
+     id="path3318"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/5.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 510,887.36218 L 20,887.36218 L 510,902.36213 L 510,887.36218 z"
+     id="path3320"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_top/6.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 510,967.36216 L 19.999994,982.36216 L 19.999994,967.36216 L 24.999994,977.36216 L 510,967.36216 z"
+     id="path3322"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/3.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 19.999994,937.36216 L 19.999994,947.36216 L 500,937.36216 L 24.999994,942.36216 L 19.999994,937.36216 z"
+     id="path3324"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/2.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 19.999994,917.36216 L 19.999994,922.36216 L 500,917.36216 L 19.999994,917.36216 z"
+     id="path3326"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/1.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 19.999994,887.36218 L 510,902.36216 L 510,887.36218 L 505,897.36218 L 19.999994,887.36218 z"
+     id="path3328"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/6.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 510,857.36218 L 510,867.36218 L 29.999995,857.36218 L 505,862.36218 L 510,857.36218 z"
+     id="path3330"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/5.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 510,837.36218 L 510,842.36218 L 29.999995,837.36218 L 510,837.36218 z"
+     id="path3332"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/hover_bottom/4.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 530.00001,307.36223 L 40.000012,307.36223 L 530.00001,302.36223 L 530.00001,302.36223 L 530.00001,307.36223 z"
+     id="path3370"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/bottom/4.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 40.000003,397.36215 L 530.00001,397.36215 L 40.000003,402.36215 L 40.000003,402.36215 L 40.000003,397.36215 z"
+     id="path3374"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/bottom/1.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 40.000003,417.36215 L 530.00001,417.36215 L 40.000003,427.36215 L 40.000003,417.36215 z"
+     id="path3376"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/bottom/2.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 40.000003,447.36215 L 530.00001,447.36215 L 40.000003,462.36215 L 40.000003,447.36215 z"
+     id="path3378"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/bottom/3.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 530.00001,317.3622 L 40.000006,317.3622 L 530.00001,322.3622 L 530.00001,322.3622 L 530.00001,317.3622 z"
+     id="path3380"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/bottom/4.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 530.00001,337.3622 L 40.000006,337.3622 L 530.00001,347.3622 L 530.00001,337.3622 z"
+     id="path3382"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/bottom/5.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 530.00001,367.3622 L 40.000006,367.3622 L 530.00001,382.36215 L 530.00001,367.3622 z"
+     id="path3384"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/quad/bottom/6.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 390,1012.3622 L 210,1012.3622 L 390,1022.3622 L 390,1012.3622 z"
+     id="path2427"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/poll/bottom.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c628f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 389.99997,1012.3622 L 389.99997,1022.3622 L 213.67345,1012.3622 L 388.16324,1017.3622 L 389.99997,1012.3622 z"
+     id="path2429"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/poll/bottom.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#d7e5fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 19.999994,1037.3622 L 200,1037.3622 L 19.999994,1022.3622 L 19.999994,1037.3622 z"
+     id="path2431"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/poll/top.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <path
+     style="fill:#2c618f;fill-opacity:0.94117647;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 200.00002,1037.3622 L 19.99999,1022.3622 L 19.99999,1037.3622 L 21.836726,1027.3622 L 200.00002,1037.3622 z"
+     id="path2433"
+     inkscape:export-filename="/home/html/projects/rails/pi/public/images/poll/top.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+</svg>
