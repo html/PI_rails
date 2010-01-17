@@ -6,6 +6,9 @@
   = javascript_include_tag 'jquery/jqModal', 'jquery/jquery.form', 'jquery/jquery.scrollTo'
   %style{ :type => 'text/css' }
     :sass
+      .wc 
+        float: left
+        width: 472px
       h2
         margin: 0
       .w200
@@ -50,7 +53,7 @@
 .clear
 .fl.wcenter
   - @links.each do |item|
-    = link_to h([item.description, item.value].join ' - '), item.value, :target => '_blank', :class => 'link'
+    = link_to h([item.description, item.value].join ' - '), item.value, :target => '_blank', :class => 'link wc'
     .clear
 
   .cloud.center{ :align => 'center' }
