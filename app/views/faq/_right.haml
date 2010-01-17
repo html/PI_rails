@@ -9,7 +9,10 @@
         = link_to_function 'Надіслати питання', "$(this).parents('form').submit()", :class => 'link fl', :style => 'width:140px'
         .clear
       - if is_admin
-        = link_to_item_with_count 'Питання без відповідей', { :action => :unanswered }, Question.count, { :class => 'link fl', :style => 'width:140px' }
+        = link_to_unless_current insert_count('Питання без відповідей', Question.count_unanswered), { :action => :unanswered }, { :class => 'link fl', :style => 'width:140px' } do |text|
+          %div{ :style => 'padding:5px 10px' }
+            = text
+          - ''
       .clear
     .clear
     .bottom

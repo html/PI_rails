@@ -63,4 +63,8 @@ module ApplicationHelper
       link_to(t(caption) + (count ? " (#{count})" : ''), item, options)
     end
   end
+
+  def insert_count(caption, count)
+    t(caption) + (count ? " (#{count})" : '')
+  end
 end

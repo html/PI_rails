@@ -8,4 +8,8 @@ class Question < ActiveRecord::Base
   def self.unanswered_questions
     find(:all, :include => :answer, :conditions => 'answers.question_id is NULL')
   end
+
+  def self.count_unanswered
+    count(:include => :answer, :conditions =>  'answers.question_id is NULL')
+  end
 end
