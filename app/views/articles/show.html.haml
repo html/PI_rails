@@ -1,10 +1,10 @@
 - title @article.title
 - stylesheet 'article'
-
 - if is_admin
   .fr.h100.p5
     = link_to image_tag('/images/icons/add.png', :width => 50, :height => 50), new_article_path, :class => 'tooltip fl', :title => 'Додати ще одну статтю'
     = link_to image_tag('/images/icons/edit.png', :width => 50, :height => 50), edit_article_path(@article),  :class => 'tooltip fl', :title => 'Редагувати статтю'
     = link_to image_tag('/images/icons/remove.png', :width => 50, :height => 50), { :action => :destroy, :id => @article },  :class => 'tooltip fl', :title => 'Видалити статтю', :confirm => 'Ви впевнені ?'
-.fl
-  = simple_format(@article.content)
+  .clear
+= simple_format(@article.content)
+
