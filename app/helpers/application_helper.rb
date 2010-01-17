@@ -57,4 +57,10 @@ module ApplicationHelper
   def w3c_date(date)
     date.utc.strftime("%Y-%m-%dT%H:%M:%S+00:00")
   end
+
+  def link_to_item_with_count(caption, item, count, options = {})
+    if count > 0
+      link_to(t(caption) + (count ? " (#{count})" : ''), item, options)
+    end
+  end
 end
