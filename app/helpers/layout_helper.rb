@@ -27,4 +27,8 @@ module LayoutHelper
       File.open(path).read
     end
   end
+
+  def logo_src
+   "/images/logo/%s.png" % (request.params[:controller] == 'weather' ? 'frosty' : 'main')
+  end
 end
