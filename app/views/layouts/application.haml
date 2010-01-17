@@ -19,7 +19,7 @@
           %p.sp
             \&nbsp;
         %td{ :background => "/images/grad.gif", :align => "left", :valign => "middle", :width => "915" }
-          %img{ :src => logo_src, :style => " float:left;margin-left:20px;", :width => "200", :height => "115" }
+          = link_to image_tag(logo_src, :style => " float:left;margin-left:20px;", :width => "200", :height => "115"), @host
           .fl
             %h1{ :style => 'white-space: inherit;width:490px' }
               =h yield(:title)
