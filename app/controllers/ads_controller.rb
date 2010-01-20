@@ -16,7 +16,7 @@ class AdsController < ApplicationController
   def by_tag
     @tag = params[:tag]
     not_found if !tags.include?(@tag.to_sym)
-    @ads = Ad.find_tagged_with(@tag)
+    @ads = Ad.by_tag(@tag)
   end
 
   def all

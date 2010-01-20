@@ -9,4 +9,7 @@ class Ad < ActiveRecord::Base
   def self.latest_few
     latest({ :limit => 5 })
   end
+  def self.by_tag(tag)
+    find_tagged_with(tag, :order => 'created_at DESC')
+  end
 end
