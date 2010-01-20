@@ -13,7 +13,8 @@ class Weather < ActiveRecord::Base
     "Snow Showers" => 9,
     "Chance of Rain" => 4,
     "Partly Sunny" => 10,
-    "Overcast" => 10
+    "Overcast" => 10,
+    "Mostly Sunny" => 10
   }
 
   @@images = {
@@ -93,7 +94,7 @@ class Weather < ActiveRecord::Base
     row.temperature = f_to_c item.temperature.fahrenheit if item.temperature
     row.wind_direction = @@directions[item.wind.direction] if item.wind
 
-    logger.info("Missing direction \"#{item.condition}\"") if item.wind && !@@directions[item.wind.direction]
+    logger.info("Missing direction \"#{item.wind.direction}\"") if item.wind && !@@directions[item.wind.direction]
 
     row.wind_speed = m_to_k item.wind.miles if item.wind
     row.low_temperature = f_to_c item.low.fahrenheit if item.low
