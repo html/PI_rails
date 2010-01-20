@@ -20,7 +20,7 @@ class AdsController < ApplicationController
   end
 
   def all
-    @ads = Ad.last
+    @ads = Ad.latest
     render :by_tag
   end
 
