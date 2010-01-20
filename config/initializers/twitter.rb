@@ -1,0 +1,2 @@
+TWITTER_USERNAME = 'pishchanko'
+TWITTER_PASSWORD = ''

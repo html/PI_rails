@@ -47,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
   map.subdomain_connect ':controller.:host/by_tag/:tag', :action => 'by_tag'
   map.subdomain_connect ':controller.:host/delete/:id', :action => 'destroy'
   map.subdomain_connect ':controller.:host/:action/:id'
-  map.root :controller => 'links'
+  map.root :controller => 'index'
   map.photos '/', :controller => 'photos', :action => 'index'
   map.article '/show/:id', :controller => 'articles', :action => 'show'
   map.articles '/', :controller => 'articles', :action => 'index'

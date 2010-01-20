@@ -5,4 +5,8 @@ class Photo < ActiveRecord::Base
   }
   validates_attachment_presence :image
   validates_presence_of :title
+
+  def self.random
+    first(:order => 'RANDOM()')
+  end
 end

@@ -1,0 +1,72 @@
+- title 'Піщанко.ua !!!'
+- require_jquery
+- stylesheet 'jquery.twitter'
+- javascript 'jquery/jquery.twitter.js'
+- content_for :head do
+  %style{ :type => 'text/css' }
+    :sass
+      .w346
+        width: 330px
+      .twitter
+        vertical-align: middle
+        background: no-repeat 5px 4px url(/images/icons/twitter.gif )
+      .world_link
+        background: no-repeat 5px 3px url(/images/icons/world_link.png)
+      .h10
+        padding-top: 10px
+
+- stylesheet 'link'
+
+.w346.fl
+  = link_to 'Піщанка на twitter.com (новини сайту)', 'http://twitter.com/' + TWITTER_USERNAME, :class => 'link twitter', :style => 'padding-left: 25px', :target => '_blank'
+  .clear.h10
+  #twitter
+  - if false
+    .clear
+    - cache do
+      - twitter.user_timeline.each do |item|
+        = auto_link_urls item.text,  :class => 'world_link link', :target => '_blank', :style => 'padding-left: 25px'
+        %br
+.w346.fr
+  = link_to 'Останні оголошення на сайті', { :controller => :ads, :action => :all }, :class => 'link'
+  .clear.h10
+  .twitted
+    %ul.twitter_update_list
+      - @ads.each do |item|
+        %li{ :class => li_class(item, @ads)}
+          %span
+            = link_to item.title, :controller => :ads, :action => :show, :id => item
+.clear
+.w346.fl
+  = link_to 'Останні статті на сайті', { :controller => :articles, :action => :index }, :class => 'link'
+  .clear.h10
+  .twitted
+    %ul.twitter_update_list
+      - @articles.each do |item|
+        %li{ :class => li_class(item, @articles)}
+          %span
+            = link_to item.title, :controller => :articles, :action => :show, :id => item
+.w346.fr
+  = link_to 'Випадкове фото', { :controller => :photos, :action => :index }, :class => 'link'
+  .clear.h10
+  .twitted
+    %div.center{ :style => 'padding: 0.8em 0.8em' }
+      .fl
+        = link_to image_tag(@photo.image.url(:thumb), :width => 100), :controller => :photos
+      .fl{ :style => 'padding-left: 0.8em' }
+        = @photo.title
+      .clear
+
+:javascript
+  $(function(){
+    $("#twitter").getTwitter({
+      userName: "pishchanko",
+      numTweets: 5,
+      loaderText: "Завантажую записи...",
+      slideIn: true,
+      slideDuration: 750,
+      showHeading: false,
+      showProfileLink: false,
+      showTimestamp: false
+    });
+  });
