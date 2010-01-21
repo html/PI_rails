@@ -1,4 +1,5 @@
 class Ad < ActiveRecord::Base
+  extend LastModified
   acts_as_taggable
   validates_presence_of :title, :content, :tag_list, :contacts
 

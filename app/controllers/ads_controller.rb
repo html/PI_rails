@@ -37,4 +37,10 @@ class AdsController < ApplicationController
       @ads = []
     end
   end
+
+  def sitemap
+    @items = Ad.all
+
+    render :layout => 'sitemap'
+  end
 end

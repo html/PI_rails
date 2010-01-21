@@ -1,0 +1,6 @@
+- for item in @items
+  %url
+    %loc
+      = url_for( :action => 'show', :id => item.to_param )
+    %lastmod
+      = w3c_date item.updated_at
