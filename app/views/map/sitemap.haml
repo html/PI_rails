@@ -1,0 +1,5 @@
+%url
+  %loc
+    = url_for :action => :sitemap
+  %lastmod
+    = w3c_date( mtime_of :controller => :map, :action => :index )

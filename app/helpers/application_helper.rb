@@ -67,4 +67,8 @@ module ApplicationHelper
   def insert_count(caption, count)
     t(caption) + (count ? " (#{count})" : '')
   end
+
+  def mtime_of(*args)
+    File.mtime(Dir["%s/app/views/%s/%s*" % [RAILS_ROOT, args.delete(:controller) || 'index', args.delete(:action) || 'index']].first)
+  end
 end
