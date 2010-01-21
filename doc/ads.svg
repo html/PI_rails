@@ -63,7 +63,7 @@
        inkscape:collect="always"
        xlink:href="#pattern5328"
        id="pattern6164"
-       patternTransform="translate(-260,397.36218)" />
+       patternTransform="translate(-259.99999,397.36218)" />
     <pattern
        inkscape:collect="always"
        xlink:href="#pattern6079"
@@ -233,7 +233,7 @@
        x2="490.5"
        y2="447.36218"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(0,2.4025654e-6)" />
+       gradientTransform="translate(1.766225e-7,2.4025654e-6)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6036"
@@ -325,6 +325,16 @@
        y1="102.36218"
        x2="750"
        y2="102.36218" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5986"
+       id="linearGradient3262"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(5.948092e-6,-2.08e-6)"
+       x1="-222.5"
+       y1="142.36218"
+       x2="342.5"
+       y2="142.36218" />
   </defs>
   <sodipodi:namedview
      inkscape:window-height="749"
@@ -342,7 +352,7 @@
      showguides="false"
      inkscape:zoom="0.62623261"
      inkscape:cx="288.82467"
-     inkscape:cy="869.05305"
+     inkscape:cy="798.15588"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:current-layer="svg2">
@@ -538,9 +548,9 @@
   <rect
      style="fill:url(#pattern6164);fill-opacity:1;fill-rule:nonzero;stroke:url(#linearGradient6107);stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect2538"
-     width="361.34079"
+     width="400.52121"
      height="61.18222"
-     x="159.19495"
+     x="139.74814"
      y="402.36218"
      inkscape:export-filename="/home/html/stuff/ads2.png"
      inkscape:export-xdpi="57.896992"
@@ -605,4 +615,29 @@
        x="501.79688"
        y="22.362183"
        style="font-weight:bold">Додати оголошення</tspan></text>
+  <rect
+     style="fill:url(#pattern5328);fill-opacity:1.0;fill-rule:nonzero;stroke:url(#linearGradient3262);stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect3258"
+     width="389.76215"
+     height="58"
+     x="150.12195"
+     y="-75.637817"
+     inkscape:export-filename="/home/html/stuff/ads2.png"
+     inkscape:export-xdpi="57.896992"
+     inkscape:export-ydpi="57.896992" />
+  <text
+     xml:space="preserve"
+     style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Serif;-inkscape-font-specification:Bitstream Vera Serif"
+     x="353.03906"
+     y="-37.637817"
+     id="text3264"
+     sodipodi:linespacing="125%"
+     inkscape:export-filename="/home/html/stuff/ads2.png"
+     inkscape:export-xdpi="57.896992"
+     inkscape:export-ydpi="57.896992"><tspan
+       id="tspan3266"
+       sodipodi:role="line"
+       x="353.03906"
+       y="-37.637817"
+       style="font-weight:bold">Всі оголошення</tspan></text>
 </svg>
