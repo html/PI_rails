@@ -10,9 +10,3 @@
       = url_for :controller => :map, :action => :sitemap
     %lastmod
       = w3c_date(mtime_of :controller => :map, :action => :index)
-  %urlset{ :xmlns => sitemap_xmlns(:siteindex) }
-    %url
-      %loc
-        = url_for :controller => :map, :action => :index
-      %lastmod
-        = mtime_of :controller => :map, :action => :index
