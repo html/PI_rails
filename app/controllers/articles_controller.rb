@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_filter :assign_photo, :only => [:index]
   action :index, :show, :new, :create, :edit, :update, :destroy
   
   access_control do

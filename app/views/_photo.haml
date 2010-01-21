@@ -1,0 +1,8 @@
+- if @photo
+  - content = capture do
+    %h4
+      Випадкове зображення
+    .clear
+    .center{ :style => 'width: 100px' }
+      = link_to image_tag(@photo.image.url(:thumb)), :controller => :photos, :action => :index
+  = render :partial => '/right_block', :locals => { :content => content }

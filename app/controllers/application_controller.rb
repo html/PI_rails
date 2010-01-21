@@ -43,4 +43,8 @@ class ApplicationController < ActionController::Base
       @poll = PhpbbTopics.last_poll(cookies, @current_user)
     end
   end
+
+  def assign_photo
+    @photo = Photo.random
+  end
 end

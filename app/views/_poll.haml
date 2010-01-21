@@ -1,22 +1,17 @@
-- require_jquery
-- stylesheet 'link', 'poll'
-
-%div#poll
-  .top
-  .content
-    - if @poll
-      %h4
-        = h @poll.poll_title
-      .clear
-      - form_tag poll_view_result_url(poll.forum_id, poll.topic_id), :id => 'voteform' do
-        - for i in @poll.phpbb_poll_options
-          %label
-            = radio_button_tag 'vote_id[]', i.poll_option_id, false
-            = i.poll_option_text
-        %input{ :type => 'hidden', :name => 'update', :value => 'update' }
-        = link_to_function 'Проголосувати', "$('#voteform').submit()", :class => 'link w110'
-        = link_to 'Результати', poll_view_result_url(poll.forum_id, poll.topic_id), :class => 'link w110'
-    - else
-      Немає нових опитувань
+- content = capture do
+  - if @poll
+    %h4
+      = h @poll.poll_title
     .clear
-  .bottom
+    - form_tag poll_view_result_url(poll.forum_id, poll.topic_id), :id => 'voteform' do
+      - for i in @poll.phpbb_poll_options
+        %label
+          = radio_button_tag 'vote_id[]', i.poll_option_id, false
+          = i.poll_option_text
+      %input{ :type => 'hidden', :name => 'update', :value => 'update' }
+      = link_to_function 'Проголосувати', "$('#voteform').submit()", :class => 'link w110'
+      = link_to 'Результати', poll_view_result_url(poll.forum_id, poll.topic_id), :class => 'link w110'
+  - else
+    Немає нових опитувань
+    .clear
+= render :partial => '/right_block', :locals => { :content => content }
