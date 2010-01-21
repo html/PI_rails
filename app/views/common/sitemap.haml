@@ -10,3 +10,8 @@
       = url_for :controller => :map, :action => :sitemap
     %lastmod
       = w3c_date(mtime_of :controller => :map, :action => :index)
+  %sitemap
+    %loc
+      = url_for :controller => :ads, :action => :sitemap
+    %lastmod
+      = Ad.last_modified
