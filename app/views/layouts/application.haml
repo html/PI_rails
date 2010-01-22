@@ -30,18 +30,18 @@
             %div{ :style => "padding: 10px" }
               - if PageInfo::page
                 - form_for PageInfo::page, :url => { :controller => :common, :action => :update_page_info, :id => PageInfo::page }, :method => :post do |f|
-                  %table
+                  %table{ :width => '100%' }
                     %tr
                       %td
                         Page id
                       %td= PageInfo::page.page_id
                     %tr
                       %td= f.label :description
-                      %td= f.text_field :description
-                      %td{ :rowspan => 2 }= f.submit
+                      %td= f.text_field :description, :size => 70
+                      %td{ :rowspan => 3, :width => 100 }= f.submit
                     %tr
                       %td= f.label :keywords
-                      %td= f.text_field :keywords
+                      %td= f.text_field :keywords, :size => 70
             .clear
         %td{ :background => "/images/right.gif", :width => "17" }
           %p.sp
