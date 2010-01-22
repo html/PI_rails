@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_current_user
   before_filter :assign_poll
   before_filter do |controller|
-    if controller.method_exists? :index
+    if controller.respond_to? :index
       controller.send(:has_one_page_info, :index)
     end
   end
