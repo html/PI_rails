@@ -31,7 +31,7 @@ class PhpbbTopics < ActiveRecord::Base
 
   def self.forbidden_poll_ids(user)
     if(user)
-      (PhpbbPollVote.find_by_vote_user_id(user.user_id, :select => 'topic_id') || []).map(&:topic_id)
+      (PhpbbPollVote.find_all_by_vote_user_id(user.user_id, :select => 'topic_id') || []).map(&:topic_id)
     else
       []
     end
