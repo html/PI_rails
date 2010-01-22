@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
   before_filter :assign_host
   before_filter :set_current_user
   before_filter :assign_poll
+  before_filter do |controller|
+    if controller.method_exists? :index
+      controller.send(:has_one_page_info, :index)
+    end
+  end
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -46,5 +51,31 @@ class ApplicationController < ActionController::Base
 
   def assign_photo
     @photo = Photo.random
+  end
+
+  def self.has_one_page_info(*args)
+    before_filter do |controller|
+      controller.send(:has_one_page_info, *args)
+    end
+  end
+
+  def has_one_page_info(*args)
+    options = args.extract_options!
+    args.each do |arg|
+      item = PageInfo.find_or_create_by_page_id([request.params[:controller], arg].join '-')
+
+      if arg.to_s == request.params[:action]
+        PageInfo.page = item
+      end
+    end
+  end
+
+  def has_page_info_and_uses_it(id)
+    has_one_page_info id
+    set_page_id [request.params[:controller], id.to_s].join '-'
+  end
+
+  def set_page_id(id)
+    PageInfo::page = PageInfo.find_by_page_id(id)
   end
 end

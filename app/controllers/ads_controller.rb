@@ -1,4 +1,5 @@
 class AdsController < ApplicationController
+  has_one_page_info :all, :search
   include AdsHelper
   before_filter :transform_params, :only => :create
   action :index, :show, :new, :create, :edit, :update, :destroy
@@ -16,6 +17,7 @@ class AdsController < ApplicationController
   def by_tag
     @tag = params[:tag]
     not_found if !tags.include?(@tag.to_sym)
+    has_page_info_and_uses_it ['by_tag', @tag].join '-'
     @ads = Ad.by_tag(@tag)
   end
 

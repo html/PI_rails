@@ -1,4 +1,6 @@
 class Ad < ActiveRecord::Base
+  include PageInfoAfterInitialize
+  has_one :page_info, :as => :item
   extend LastModified
   acts_as_taggable
   validates_presence_of :title, :content, :tag_list, :contacts

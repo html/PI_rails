@@ -6,8 +6,9 @@
     
     %meta{ :name => "viewport", :content => "initial-scale=1.0, user-scalable=no" }
 
-    %meta{ :name => "keywords", :content => "#{yield :keywords}" }
-    %meta{ :name => "description", :content => "#{yield :description}" }
+    - if PageInfo::page
+      %meta{ :name => "keywords", :content => PageInfo::page.keywords }
+      %meta{ :name => "description", :content => PageInfo::page.description }
     = stylesheet_link_tag 'global', 'menu', 'tooltip'
     - require_jquery
     = yield(:head) 
@@ -24,6 +25,24 @@
             %h1{ :style => 'white-space: inherit;width:490px' }
               =h yield(:title)
           = render :partial => '/user_info'
+          - if is_admin
+            .clear
+            %div{ :style => "padding: 10px" }
+              - if PageInfo::page
+                - form_for PageInfo::page, :url => { :controller => :common, :action => :update_page_info, :id => PageInfo::page }, :method => :post do |f|
+                  %table
+                    %tr
+                      %td
+                        Page id
+                      %td= PageInfo::page.page_id
+                    %tr
+                      %td= f.label :description
+                      %td= f.text_field :description
+                      %td{ :rowspan => 2 }= f.submit
+                    %tr
+                      %td= f.label :keywords
+                      %td= f.text_field :keywords
+            .clear
         %td{ :background => "/images/right.gif", :width => "17" }
           %p.sp
             \&nbsp;

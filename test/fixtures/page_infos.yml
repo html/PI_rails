@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  keywords: MyText
+  description: MyText
+  inherits_keywords_from: 1
+  inherits_description_from: 1
+
+two:
+  keywords: MyText
+  description: MyText
+  inherits_keywords_from: 1
+  inherits_description_from: 1
