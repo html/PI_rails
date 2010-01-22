@@ -1,4 +1,5 @@
 class FaqController < ApplicationController
+  before_filter :assign_photo, :only => [:index]
   #action :create, :model => Question, :success_response => Proc.new { |format|
     #debugger
     #true
