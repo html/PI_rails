@@ -3,4 +3,4 @@
     - if is_admin
       .fr{ :style => 'position: absolute' }
         = link_to image_tag('/images/icons/remove.png', :width => 20, :height => 20), :id => item.to_param, :action => :destroy
-    = link_to image_tag(item.image.url(:thumb), :alt => item.title), item.image.url, :class => 'fancy tooltip', :title => item.title, :rel => 'fancy'
+    = link_to image_tag(item.image.url(:thumb), :alt => item.title), item.image.url(:full), :class => 'fancy tooltip', :title => item.title, :rel => 'fancy'
