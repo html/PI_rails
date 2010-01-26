@@ -31,31 +31,43 @@
   = link_to 'Останні оголошення на сайті', { :controller => :ads, :action => :all }, :class => 'link'
   .clear.h10
   .twitted
-    %ul.twitter_update_list
-      - @ads.each do |item|
-        %li{ :class => li_class(item, @ads)}
-          %span
-            = link_to item.title, :controller => :ads, :action => :show, :id => item
+    - if !@ads.empty?
+      %ul.twitter_update_list
+        - @ads.each do |item|
+          %li{ :class => li_class(item, @ads)}
+            %span
+              = link_to item.title, :controller => :ads, :action => :show, :id => item
+    - else
+      .p10
+        Оголошення відсутні
 .clear
 .w346.fl
   = link_to 'Останні статті на сайті', { :controller => :articles, :action => :index }, :class => 'link'
   .clear.h10
   .twitted
-    %ul.twitter_update_list
-      - @articles.each do |item|
-        %li{ :class => li_class(item, @articles)}
-          %span
-            = link_to item.title, :controller => :articles, :action => :show, :id => item
+    - if !@articles.empty?
+      %ul.twitter_update_list
+        - @articles.each do |item|
+          %li{ :class => li_class(item, @articles)}
+            %span
+              = link_to item.title, :controller => :articles, :action => :show, :id => item
+    - else
+      .p10
+        Статті відсутні
 .w346.fr
   = link_to 'Випадкове фото', { :controller => :photos, :action => :index }, :class => 'link'
   .clear.h10
   .twitted
-    %div.center{ :style => 'padding: 0.8em 0.8em' }
-      .fl
-        = link_to image_tag(@photo.image.url(:thumb), :width => 100), :controller => :photos
-      .fl{ :style => 'padding-left: 0.8em;width: 216px;' }
-        = @photo.title
-      .clear
+    - if @photo
+      %div.center{ :style => 'padding: 0.8em 0.8em' }
+        .fl
+          = link_to image_tag(@photo.image.url(:thumb), :width => 100), :controller => :photos
+        .fl{ :style => 'padding-left: 0.8em;width: 216px;' }
+          = @photo.title
+        .clear
+    - else
+      .p10
+        Фотографії відсутні
 
 :javascript
   $(function(){
