@@ -6,4 +6,8 @@ class Article < ActiveRecord::Base
   def self.latest_few
     all(:order => 'created_at DESC', :limit => 5)
   end
+
+  def self.all
+    find(:all, :order => 'created_at DESC')
+  end
 end
