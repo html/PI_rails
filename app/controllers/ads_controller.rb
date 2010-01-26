@@ -12,7 +12,7 @@ class AdsController < ApplicationController
     end
 
     if @current_user && params[:ad]
-      params[:ad][:user_id] = @current_user
+      params[:ad][:user_id] = @current_user.user_id
     else
       hash = Digest::MD5.hexdigest([Time.new.to_i, request.remote_ip, rand].join)
       cookies['ad_' + hash] = true
