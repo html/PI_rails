@@ -6,7 +6,7 @@
         = question_for(item)
     .clear
     .fl{ :style => 'padding-left: 20px' }
-      = h item.answer.answer
+      = auto_link h item.answer.answer
     .clear
 .fr
   = render :partial => 'right'
