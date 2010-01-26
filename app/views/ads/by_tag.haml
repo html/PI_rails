@@ -1,4 +1,4 @@
-- title 'Піщанські оголошення' + (params[:action] == 'all' ? '' : ' - ' + t(@tag))
+- title @title ? @title : ('Піщанські оголошення' + (params[:action] == 'all' ? '' : ' - ' + t(@tag)))
 - content_for :head do
   %link{ :rel => 'stylesheet', :href => url_for(:controller => :articles, :action => :css ) }
 .fl

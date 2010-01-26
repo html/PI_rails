@@ -12,7 +12,18 @@ class Ad < ActiveRecord::Base
   def self.latest_few
     latest({ :limit => 5 })
   end
+
   def self.by_tag(tag)
     find_tagged_with(tag, :order => 'created_at DESC')
+  end
+
+  def self.by_cookies(cookies)
+    values = cookies.collect do |key, val|
+      if key.match /ad_(.*)\z/
+        $1
+      end
+    end.find_all {|item| !item.nil? }
+
+    find_all_by_h(values, :conditions => { :user_id => nil })
   end
 end

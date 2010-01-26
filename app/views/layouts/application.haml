@@ -9,7 +9,7 @@
     - if PageInfo::page
       %meta{ :name => "keywords", :content => PageInfo::page.keywords }
       %meta{ :name => "description", :content => PageInfo::page.description }
-    = stylesheet_link_tag 'global', 'menu', 'tooltip'
+    = stylesheet_link_tag 'global', 'menu', 'tooltip', 'link'
     - require_jquery
     = yield(:head) 
     = javascript_include_tag 'jquery/vtip'
@@ -68,6 +68,10 @@
               = link_to '<span>Форум</span>', forum_url, :class => 'button'
               %br
               = link_to new_mark + '<span style="font-size:12px">Оголошення</span>', { :controller => :ads, :action => :index }, :class => 'button tooltip', :title => 'Вперше на сайті - піщанські оголошення'
+              - if @current_user && @current_user.has_ads? || !@cookied_ads.empty?
+                .clear
+                = link_to 'Мої оголошення', { :controller => :ads, :action => :my }, :class => "link"
+                .clear
               %br
               = link_to new_mark + '<span>Галерея</span>', { :controller => :photos, :action => :index }, :class => 'button tooltip', :title => 'Галерея оновилась'
               %br

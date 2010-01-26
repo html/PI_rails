@@ -1,3 +1,5 @@
+require 'digest'
+
 class AdsController < ApplicationController
   has_one_page_info :all, :search
   include AdsHelper
@@ -11,6 +13,10 @@ class AdsController < ApplicationController
 
     if @current_user && params[:ad]
       params[:ad][:user_id] = @current_user
+    else
+      hash = Digest::MD5.hexdigest([Time.new.to_i, request.remote_ip, rand].join)
+      cookies['ad_' + hash] = true
+      params[:ad][:h] = hash
     end
   end
 
@@ -44,5 +50,24 @@ class AdsController < ApplicationController
     @items = Ad.all
 
     render :layout => 'sitemap'
+  end
+
+  def my
+    if @current_user
+      if @cookied_ads
+        @cookied_ads.each do |item|
+          cookies.delete('ad_' + item.h)
+          item.user_id = @current_user.user_id
+          item.save
+        end
+      end
+
+      @ads = @current_user.ads
+    else
+      @ads = @cookied_ads
+    end
+
+    @title = 'Мої оголошення'
+    render :by_tag
   end
 end

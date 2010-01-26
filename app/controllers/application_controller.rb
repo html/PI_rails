@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  before_filter :assign_ads_from_cookies
   before_filter :assign_host
   before_filter :set_current_user
   before_filter :assign_poll
@@ -77,5 +78,9 @@ class ApplicationController < ActionController::Base
 
   def set_page_id(id)
     PageInfo::page = PageInfo.find_by_page_id(id)
+  end
+
+  def assign_ads_from_cookies
+    @cookied_ads = Ad.by_cookies(cookies)
   end
 end
