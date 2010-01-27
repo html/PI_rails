@@ -3,11 +3,14 @@ width: 490px;
 }
 
 .article:hover {
-  font-weight: bold;
+  text-decoration: underline;
 }
 .article .item {
   background-color: #d7e5fa;
   padding: 15px;
+}
+.article .item, .article a, a.article {
+  text-decoration: none;
 }
 <% ['top','bottom'].each do |type| %>
   <% for i in 1..6 do %>
