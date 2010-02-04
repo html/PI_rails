@@ -1,6 +1,7 @@
 class Photo < ActiveRecord::Base
   has_attached_file :image, :storage => :filesystem, :styles => {
     :original => ["1024x768", :png],
+    :half => ["240x240#", :jpg],
     :full => ["800x600", :jpg],
     :thumb => ["100x100#", :jpg]
   }
@@ -9,5 +10,9 @@ class Photo < ActiveRecord::Base
 
   def self.random
     first(:order => 'RANDOM()')
+  end
+
+  def self.all
+    find(:all, :conditions => { :public => true })
   end
 end

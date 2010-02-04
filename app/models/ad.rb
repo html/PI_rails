@@ -4,6 +4,7 @@ class Ad < ActiveRecord::Base
   extend LastModified
   acts_as_taggable
   validates_presence_of :title, :content, :tag_list, :contacts
+  has_and_belongs_to_many :photos
 
   def self.latest(options = {})
     all({:order => 'created_at DESC'}.merge(options))
@@ -25,5 +26,11 @@ class Ad < ActiveRecord::Base
     end.find_all {|item| !item.nil? }
 
     find_all_by_h(values, :conditions => { :user_id => nil })
+  end
+
+  def photo_attributes=(photo_attributes)
+    photo_attributes.each do |attributes|
+      photos.build(attributes.merge(:title => 'xxx'))
+    end
   end
 end

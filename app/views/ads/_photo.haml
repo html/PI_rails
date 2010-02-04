@@ -1,0 +1,6 @@
+- require_jquery
+.photo
+  - fields_for "ad[photo_attributes][]", photo do |p|
+    %p
+      = p.file_field :image, :index => nil
+      = link_to_function "Видалити", "if($('.photo').length > 1) $(this).parents('.photo').remove()"

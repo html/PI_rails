@@ -1,4 +1,4 @@
-- form_for @ad, :url => defined?(url) ? url : url_for(:action => :create, :tag_list => params[:tag_list]) do |f|
+- form_for @ad, :url => defined?(url) ? url : url_for(:action => :create, :tag_list => params[:tag_list]), :html => { :enctype => 'multipart/form-data' } do |f|
   = f.error_messages
   %p
     = f.label :title
@@ -20,5 +20,10 @@
     = f.label :contacts
     %br
     = f.text_area :contacts, :rows => 5
+  .fr
+    = link_to_function "Додати ще одне поле для фотографії", "$('.photos').append($('.photo:first').clone().val('')).show()"
+  .clear
+  .photos
+    = render :partial => 'photo', :collection => @ad.photos
   %p
     = f.submit "Зберегти оголошення"

@@ -4,7 +4,12 @@ class AdsController < ApplicationController
   has_one_page_info :all, :search
   include AdsHelper
   before_filter :transform_params, :only => :create
-  action :index, :show, :new, :create, :edit, :update, :destroy
+  action :index, :show, :create, :edit, :update, :destroy
+
+  def new
+    @ad = Ad.new
+    1.upto(3) { @ad.photos.build }
+  end
 
   def transform_params
     if params[:ad] && params[:tag_list]
