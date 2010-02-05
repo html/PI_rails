@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
   validates_presence_of :title
 
   def self.random
-    first(:order => 'RANDOM()')
+    first(:conditions => { :public => true }, :order => 'RANDOM()')
   end
 
   def self.all
