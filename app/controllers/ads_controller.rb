@@ -4,7 +4,7 @@ class AdsController < ApplicationController
   has_one_page_info :all, :search
   include AdsHelper
   before_filter :transform_params, :only => :create
-  action :index, :show, :create, :edit, :update, :destroy
+  action :index, :show, :create, :edit, :update
 
   def new
     @ad = Ad.new
@@ -74,5 +74,12 @@ class AdsController < ApplicationController
 
     @title = 'Мої оголошення'
     render :by_tag
+  end
+
+  def destroy
+    @item = Ad.find params[:id]
+    @item.remove
+    flash[:notice] = 'Успішно видалено оголошення'
+    redirect_to ads_url
   end
 end

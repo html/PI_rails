@@ -7,7 +7,7 @@ class Ad < ActiveRecord::Base
   has_and_belongs_to_many :photos
 
   def self.latest(options = {})
-    all({:order => 'created_at DESC'}.merge(options))
+    all({:order => 'created_at DESC', :conditions => { :public => true }}.merge(options))
   end
 
   def self.latest_few
@@ -25,12 +25,17 @@ class Ad < ActiveRecord::Base
       end
     end.find_all {|item| !item.nil? }
 
-    find_all_by_h(values, :conditions => { :user_id => nil })
+    find_all_by_h(values, :conditions => { :user_id => nil, :public => true })
   end
 
   def photo_attributes=(photo_attributes)
     photo_attributes.each do |attributes|
       photos.build(attributes.merge(:title => 'xxx'))
     end
+  end
+
+  def remove
+    self.public = false
+    save
   end
 end
