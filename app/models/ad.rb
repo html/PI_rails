@@ -15,7 +15,7 @@ class Ad < ActiveRecord::Base
   end
 
   def self.by_tag(tag)
-    find_tagged_with(tag, :order => 'created_at DESC')
+    find_tagged_with(tag, :order => 'created_at DESC', :conditions => { :public => true })
   end
 
   def self.by_cookies(cookies)
