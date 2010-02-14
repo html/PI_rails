@@ -3,6 +3,10 @@
 # to do so you may need to add this line to your ApplicationController
 #   helper :layout
 module LayoutHelper
+  LOGOS = {
+    [14,02] => 'valentine'
+  }
+
   def title(page_title, show_title = true)
     @content_for_title = page_title.to_s
     @show_title = show_title
@@ -29,6 +33,8 @@ module LayoutHelper
   end
 
   def logo_src
-   "/images/logo/%s.png" % (request.params[:controller] == 'weather' ? 'frosty' : 'main')
+    today = Date.today
+    index = [today.day, today.month]
+    "/images/logo/%s.png" % LOGOS[index] || (request.params[:controller] == 'weather' ? 'frosty' : 'main')
   end
 end
