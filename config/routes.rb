@@ -39,6 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
+  map.connect '/menu', :controller => :common, :action => 'menu'
   map.connect '/update_page_info', :controller => 'common', :action => 'update_page_info'
   map.connect '/search', :action => 'search', :controller => 'ads'
   map.subdomain_connect ':controller.:host/sitemap.xml', :action => 'sitemap'

@@ -1,7 +1,7 @@
 class CommonController < ApplicationController
   access_control do
     allow :admin
-    allow all, :to => :sitemap
+    allow all, :to => [:sitemap, :menu]
   end
 
   def update_page_info
@@ -16,5 +16,9 @@ class CommonController < ApplicationController
 
   def sitemap
     render :layout => false
+  end
+
+  def menu
+    render :partial => '/main_menu'
   end
 end

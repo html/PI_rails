@@ -60,31 +60,7 @@
             \&nbsp;
         %td{ :align => "center", :valign => "top", :width => "915", :bgcolor => "#FFFFFF" }
           %div
-            %div#leftmenu.fl{ :style => 'padding:10px;0px;margin:0 0 0 8px;width: 181px;' }
-              /
-                begin menu table
-              = link_to '<span>Головна</span>', @host, :class => 'button'
-              %br
-              = link_to '<span>Форум</span>', forum_url, :class => 'button'
-              %br
-              = link_to new_mark + '<span style="font-size:12px">Оголошення</span>', { :controller => :ads, :action => :index }, :class => 'button tooltip', :title => 'Вперше на сайті - піщанські оголошення'
-              - if @current_user && @current_user.has_ads? || !@cookied_ads.empty?
-                .clear
-                = link_to 'Мої оголошення', { :controller => :ads, :action => :my }, :class => "link"
-                .clear
-              %br
-              = link_to new_mark + '<span>Галерея</span>', { :controller => :photos, :action => :index }, :class => 'button tooltip', :title => 'Галерея оновилась'
-              %br
-              = link_to '<span>Статті</span>', { :controller => :articles, :action => :index }, :class => 'button', :title => 'Статті'
-              %br
-              = link_to new_mark + '<span>Посилання</span>', { :controller => :links, :action => :index }, :class => 'button tooltip', :title => 'Можна додати своє посилання'
-              %br
-              = link_to '<span>Погода</span>', { :controller => :weather, :action => :index }, :class => 'button'
-              %br
-              = link_to new_mark + '<span>Карта</span>', { :controller => :map, :action => :index }, :class => 'button tooltip', :title => 'На карту додано більшість вулиць'
-              %br
-              = link_to '<span style="padding-top:13px">Питання й відповіді</span>', { :controller => :faq }, :class => 'button'
-              %br
+            = render :partial => '/main_menu'
             .fl.soria{ :style => 'padding:10px; 0px;z-index:10;border:1px solid white;width:682px;', :align => 'left' }
               - flash.each do |name, msg|
                 %div{ :class => name }
