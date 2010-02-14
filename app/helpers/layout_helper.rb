@@ -35,6 +35,6 @@ module LayoutHelper
   def logo_src
     today = Date.today
     index = [today.day, today.month]
-    "/images/logo/%s.png" % LOGOS[index] || (request.params[:controller] == 'weather' ? 'frosty' : 'main')
+    "/images/logo/%s.png" % (LOGOS[index] || (request.params[:controller] == 'weather' ? 'frosty' : 'main'))
   end
 end
