@@ -6,6 +6,10 @@ class Ad < ActiveRecord::Base
   validates_presence_of :title, :content, :tag_list, :contacts
   has_and_belongs_to_many :photos
 
+  before_create do |item|
+    item.public = true
+  end
+
   def self.latest(options = {})
     all({:order => 'created_at DESC', :conditions => { :public => true }}.merge(options))
   end
