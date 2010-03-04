@@ -4,7 +4,8 @@
 #   helper :layout
 module LayoutHelper
   LOGOS = {
-    [14,02] => 'valentine'
+    [14,02] => 'valentine',
+    [8, 03] => 'march8'
   }
 
   def title(page_title, show_title = true)
