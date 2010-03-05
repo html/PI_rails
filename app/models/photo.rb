@@ -18,7 +18,7 @@ class Photo < ActiveRecord::Base
   end
 
   def self.all_with_points
-    find(:all, :include => :point)
+    find(:all, :include => :point, :conditions => { :public => true })
   end
 
   def cords
