@@ -1,39 +1,8 @@
 - title 'Карта Піщанки'
 - require_jquery
+- require_jquery_fancybox
+= render :partial => '/preload_fb_g'
 - content_for :head do
-  :javascript
-    $(function(){
-      //Preloading Google and FancyBox images
-      var images = [
-        '/images/fancybox/fancy_progress.png',
-        '/images/fancybox/fancy_closebox.png',
-        '/images/fancybox/fancy_left.png',
-        '/images/fancybox/fancy_right.png',
-        '/images/fancybox/fancy_shadow_n.png',
-        '/images/fancybox/fancy_shadow_ne.png',
-        '/images/fancybox/fancy_shadow_e.png',
-        '/images/fancybox/fancy_shadow_se.png',
-        '/images/fancybox/fancy_shadow_s.png',
-        '/images/fancybox/fancy_shadow_sw.png',
-        '/images/fancybox/fancy_shadow_w.png',
-        '/images/fancybox/fancy_shadow_nw.png',
-        '/images/fancybox/fancy_title_left.png',
-        '/images/fancybox/fancy_title_main.png',
-        '/images/fancybox/fancy_title_right.png',
-
-        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw3.png',
-        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iws3.png',
-        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_close.gif',
-        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_plus.gif',
-        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_fullscreen.gif',
-        'http://maps.gstatic.com/intl/en_ALL/mapfiles/iw_minus.gif'
-      ];
-
-      for(var i=0;i< images.length;i++){
-        (new Image()).src = images[i];
-      }
-    })
-  = stylesheet_link_tag 'jquery.fancybox'
   %style{ :type => 'text/css' }
     :sass
       .border
@@ -49,10 +18,9 @@
         z-index: 9
   = javascript_include_tag 'jquery/jquery.ba-bbq'
   = javascript_include_tag 'jquery/jquery.scrollTo'
-  = javascript_include_tag 'http://maps.google.com/maps?language=uk&file=api&v=2&sensor=false&key=' + Barometer.google_geocode_key + '&'
+  = include_google_map
   = javascript_include_tag 'egeoxml'
   = javascript_include_tag 'lambda'
-  = javascript_include_tag 'jquery/jquery.fancybox'
   = javascript_include_tag 'map2'
   = javascript_include_tag 'map'
 #controls

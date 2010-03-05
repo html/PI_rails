@@ -1,8 +1,9 @@
 class Photo < ActiveRecord::Base
+  has_one :point, :as => :item
   has_attached_file :image, :storage => :filesystem, :styles => {
     :original => ["1024x768", :png],
     :half => ["240x240#", :jpg],
-    :full => ["800x600", :jpg],
+    :full => ["640x480", :jpg],
     :thumb => ["100x100#", :jpg]
   }
   validates_attachment_presence :image
@@ -14,5 +15,15 @@ class Photo < ActiveRecord::Base
 
   def self.all
     find(:all, :conditions => { :public => true })
+  end
+
+  def self.all_with_points
+    find(:all, :include => :point)
+  end
+
+  def cords
+    if point
+      [point.lat, point.lng]
+    end
   end
 end

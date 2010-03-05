@@ -71,4 +71,8 @@ module ApplicationHelper
   def mtime_of(*args)
     File.mtime(Dir["%s/app/views/%s/%s*" % [RAILS_ROOT, args.delete(:controller) || 'index', args.delete(:action) || 'index']].first)
   end
+
+  def include_google_map
+    javascript_include_tag 'http://maps.google.com/maps?language=uk&file=api&v=2&sensor=false&key=' + Barometer.google_geocode_key + '&'
+  end
 end

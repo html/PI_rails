@@ -3,9 +3,28 @@
 - require_jquery
 - require_jquery_modal
 - require_jquery_fancybox
+= render :partial => '/preload_fb_g'
 - content_for :head do
   = stylesheet_link_tag 'link'
-  = javascript_include_tag 'jquery/jquery.form', 'jquery/jquery.scrollTo'
+  = javascript_include_tag 'jquery/jquery.form', 'jquery/jquery.scrollTo', 'jquery/jquery.cookie'
+  = include_google_map
+  = javascript_include_tag 'egeoxml'
+  = javascript_include_tag 'lambda'
+  :javascript
+    var gallery_options = {
+      update_url: #{url_for(:action => :save_point).to_json},
+      show_map: #{@show_map},
+      get_point_url: #{url_for(:action => :coord, :id => '%').to_json}
+    };
+    get_args = function(){return { zoom: 16 };};
+    mix_in_the_url = function(){};
+
+  = javascript_include_tag 'map2', 'gallery'
+  - if is_admin
+    :javascript
+      var ad_url =  #{add_url.to_json};
+      var list_url = #{url_for(:action => 'list').to_json};
+    = javascript_include_tag 'gallery_admin'
   %style{ :type => 'text/css' }
     :sass
       .w100
@@ -28,82 +47,30 @@
       = link_to_void image_tag('/images/icons/add.png', :width => 50, :height => 50), :id => 'add_image', :class => 'tooltip', :title => 'Додати фото'
   .clear
   = render :partial => '/poll'
+#zoomControls.fl{ :style => 'z-index: 900;display:none;' }
+  #showMap.fl
+    = link_to_void image_tag('/images/icons/map.png', :width => 50, :height => 50)
+  - if is_admin
+    #editPoint.fl
+      = link_to_function image_tag('/images/icons/edit.png', :width => 50, :height => 50), 'changeMarkerPosition()'
+#map_outer{ :style => "width: 200px;height: 200px;position: relative;padding:0;z-index: 90;left: -1500px" }
+  #map_container{ :style => 'width:100%;height: 100%;position:absolute;' }
+    \&nbsp;
 
-:javascript
-  $(function(){
-    $('.fancy').fancybox({ zoomSpeedChange: 100});
-  });
-
-:javascript
-  $(function(){
-    $('#addLink').jqm({
-      modal: true,
-      trigger: '#add_image',
-      onShow: function(el){
-        $('.message').remove();
-        $('.error').remove();
-        el.w.show();
-      }
-    });
-  });
-
-#addLink.jqmWindow{ :style => 'display:none' }
-  %div{ :align => 'center' }
-    %h2 Додати фотографію
-    - form_for 'photo', :url => add_url, :html => { :multipart => true, :method => 'post', :id => 'jqmForm' } do
-      %table
-        %tr
-          %td{ :align => 'right' } Заголовок
-          %td= text_field 'photo', 'title', :class => 'w200'
-          %td.for_error{ :width => '180' }
-        %tr
-          %td{ :align => 'right' } Файл
-          %td= file_field 'photo', 'image', :class => 'w200', :size => 20
-          %td.for_error{ :width => '180' }
-    %br
-    = link_to_void 'Зберегти', :class => 'save link'
-    = link_to_void 'Відмінити', :class => 'jqmClose link'
-
-:javascript
-  (function(saveButton, form, url){
-    var form = $(form);
-    var ids = {
-      title: '#photo_title',
-      image_file_name: '#photo_image'
-    };
-
-    $(saveButton).click(function(){
-      form.ajaxSubmit({
-        type : 'POST',
-        dataType : 'json',
-        url : url,
-        semantic: true,
-        success : function(result){
-          if(result.success){
-            $('#addLink').jqmHide();
-            $('#photos').load('#{url_for(:action => 'list')}');
-            $.scrollTo('body', {
-              duration: 500, 
-              onAfter: function(){
-                $('.soria').prepend('<span class="message">Успішно додано</span>');
-                form.clearForm();
-              }
-            });
-          }else{
-            var errors = result;
-            for (var i = 0; i < errors.length; i++) {
-              $(ids[errors[i][0]]).parent().siblings('.for_error').append(
-                '<span class="error">' + errors[i][1] + '</span>'
-              );
-            };
-          }
-        },
-        failure: function(){
-          alert('Виникла помилка зв\'язку з сервером')
-        },
-        beforeSubmit : function(){
-          $('.error').remove();
-        }
-      });
-    });
-  })('.save', '#jqmForm', '#{add_url}');
+- if is_admin
+  #addLink.jqmWindow{ :style => 'display:none' }
+    %div{ :align => 'center' }
+      %h2 Додати фотографію
+      - form_for 'photo', :url => add_url, :html => { :multipart => true, :method => 'post', :id => 'jqmForm' } do
+        %table
+          %tr
+            %td{ :align => 'right' } Заголовок
+            %td= text_field 'photo', 'title', :class => 'w200'
+            %td.for_error{ :width => '180' }
+          %tr
+            %td{ :align => 'right' } Файл
+            %td= file_field 'photo', 'image', :class => 'w200', :size => 20
+            %td.for_error{ :width => '180' }
+      %br
+      = link_to_void 'Зберегти', :class => 'save link'
+      = link_to_void 'Відмінити', :class => 'jqmClose link'
