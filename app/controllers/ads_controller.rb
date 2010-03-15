@@ -4,7 +4,13 @@ class AdsController < ApplicationController
   has_one_page_info :all, :search
   include AdsHelper
   before_filter :transform_params, :only => :create
-  action :show, :create, :edit, :update
+  action :create, :edit, :update
+
+  def show
+    @ad = Ad.find params[:id]
+    not_found unless @ad
+    @owned_by_user = ad_is_owned_by_user(@ad)
+  end
 
   def new
     @ad = Ad.new
@@ -78,7 +84,11 @@ class AdsController < ApplicationController
 
   def destroy
     @item = Ad.find params[:id]
-    @item.remove
+
+    if ad_is_owned_by_user(@item)
+      @item.remove
+    end
+
     flash[:notice] = 'Успішно видалено оголошення'
     redirect_to ads_url
   end
@@ -86,4 +96,9 @@ class AdsController < ApplicationController
   def index
     redirect_to '/all'
   end
+
+  protected
+    def ad_is_owned_by_user(ad)
+      (@current_user && @current_user.id = ad.user_id) || @cookied_ads.include?(ad)
+    end
 end
