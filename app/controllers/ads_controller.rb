@@ -7,7 +7,7 @@ class AdsController < ApplicationController
   action :create, :edit, :update
 
   def show
-    @ad = Ad.find params[:id]
+    @ad = Ad.find params[:id], :conditions => { :public => true }
     not_found unless @ad
     @owned_by_user = ad_is_owned_by_user(@ad)
   end

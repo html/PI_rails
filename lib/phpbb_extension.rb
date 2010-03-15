@@ -10,7 +10,7 @@ PhpbbUser.class_eval do
   end
 
   def ads
-    Ad.find_all_by_user_id user_id
+    Ad.find_all_by_user_id user_id, :conditions => { :public => true }
   end
 
   def has_ads?
