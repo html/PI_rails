@@ -6,15 +6,16 @@
   - if @ad.photos.size
     - require_jquery
     - require_jquery_fancybox
-    %h5 Фото
-    - @ad.photos.each do |item|
-      %div.w240{ :class => cycle('fl', 'fr') }
-        = link_to image_tag(item.image.url(:half), :class =>  'image'), item.image.url(:full), :rel => 'fancy', :class => 'fancy'
-    :javascript
-      $(function(){
-        $('.fancy').fancybox();
-      });
-    .clear
+    - if !@ad.photos.empty?
+      %h5 Фото
+      - @ad.photos.each do |item|
+        %div.w240{ :class => cycle('fl', 'fr') }
+          = link_to image_tag(item.image.url(:half), :class =>  'image', :width => 240, :height => 240), item.image.url(:full), :rel => 'fancy', :class => 'fancy'
+      :javascript
+        $(function(){
+          $('.fancy').fancybox();
+        });
+      .clear
   %h5 Контакти:
   = simple_format h @ad.contacts
 
