@@ -63,7 +63,8 @@ class ApplicationController < ActionController::Base
   def has_one_page_info(*args)
     options = args.extract_options!
     args.each do |arg|
-      item = PageInfo.find_or_create_by_page_id([request.params[:controller], arg].join '-')
+      name = [request.params[:controller], arg].join '-'
+      item = PageInfo.record_for(name) || PageInfo.create_record_for(name)
 
       if arg.to_s == request.params[:action]
         PageInfo.page = item

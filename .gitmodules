@@ -19,3 +19,6 @@
 [submodule "vendor/plugins/phpbb_auth"]
 	path = vendor/plugins/phpbb_auth
 	url = git://github.com/mattfawcett/phpbb-auth.git
+[submodule "vendor/plugins/belongs_to_anything"]
+	path = vendor/plugins/belongs_to_anything
+	url = git://github.com/html/belongs_to_anything.git
