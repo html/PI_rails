@@ -94,7 +94,7 @@ class ApplicationController < ActionController::Base
 
       if result === true
         flash[:notice] = "Коментар успішно додано"
-        redirect_to :back 
+        return redirect_to :back 
       end
 
       if result
