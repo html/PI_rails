@@ -3,6 +3,8 @@
 
 require 'create_json'
 require 'phpbb_extension'
+require 'comments/comment'
+require 'I18n'
 
 class ApplicationController < ActionController::Base
   include PhpbbAuth
@@ -83,5 +85,22 @@ class ApplicationController < ActionController::Base
 
   def assign_ads_from_cookies
     @cookied_ads = Ad.by_cookies(cookies)
+  end
+
+  before_filter :save_comment_if_there_is_one
+  def save_comment_if_there_is_one
+    if params[:comment]
+      result = Comments::Manager::create_comment(params[:comment])
+
+      if result === true
+        flash[:notice] = "Коментар успішно додано"
+        redirect_to :back 
+      end
+
+      if result
+        flash[:notice] = "Виникли помилки під час збереження відгуку"
+        @comment = result
+      end
+    end
   end
 end

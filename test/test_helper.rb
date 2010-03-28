@@ -3,11 +3,14 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 require 'shoulda'
 require 'machinist/active_record'
-#require 'phpbb_extension'
 require 'rr'
 
 PhpbbUser.class_eval do
   establish_connection 'test'
+
+  def user_id
+    id
+  end
 end
 
 Ad.blueprint do

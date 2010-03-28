@@ -58,3 +58,8 @@ img {
 .wcenter {
   width: 492px;
 }
+
+.comments hr {
+  border:0;
+  border-top: 1px dashed #2C618F;
+}

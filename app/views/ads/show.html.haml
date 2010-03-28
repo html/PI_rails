@@ -21,6 +21,11 @@
   - if @owned_by_user
     Оголошення уже неактуальне ? 
     = link_to 'Видаліть його', :action => :destroy
+  .clear
+  %br
+  Коментарі
+  %hr
+  = comments_for @ad
 
 .fr
   - if is_admin

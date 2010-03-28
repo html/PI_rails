@@ -7,4 +7,8 @@
     = link_to image_tag('/images/icons/remove.png', :width => 50, :height => 50), { :action => :destroy, :id => @article },  :class => 'tooltip fl', :title => 'Видалити статтю', :confirm => 'Ви впевнені ?'
   .clear
 = simple_format(@article.content)
-
+.clear
+%br
+Коментарі
+%hr
+= comments_for @article

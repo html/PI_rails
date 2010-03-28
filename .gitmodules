@@ -22,3 +22,9 @@
 [submodule "vendor/plugins/belongs_to_anything"]
 	path = vendor/plugins/belongs_to_anything
 	url = git://github.com/html/belongs_to_anything.git
+[submodule "vendor/plugins/hash4hash"]
+	path = vendor/plugins/hash4hash
+	url = git@github.com:html/hash4hash.git
+[submodule "vendor/plugins/comments"]
+	path = vendor/plugins/comments
+	url = git@github.com:html/comments.git

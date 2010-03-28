@@ -75,4 +75,8 @@ module ApplicationHelper
   def include_google_map
     javascript_include_tag 'http://maps.google.com/maps?language=uk&file=api&v=2&sensor=false&key=' + Barometer.google_geocode_key + '&'
   end
+
+  def t(a, b= {})
+    I18n.t(a, b)
+  end
 end
