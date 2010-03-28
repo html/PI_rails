@@ -6,7 +6,7 @@
 	url = git://github.com/html/actions.git
 [submodule "vendor/plugins/rails_simple_crud_actions"]
 	path = vendor/plugins/rails_simple_crud_actions
-	url = git@github.com:html/rails_simple_crud_actions.git
+	url = git://github.com/html/rails_simple_crud_actions.git
 [submodule "vendor/plugins/paperclip"]
 	path = vendor/plugins/paperclip
 	url = git://github.com/thoughtbot/paperclip.git
@@ -24,7 +24,7 @@
 	url = git://github.com/html/belongs_to_anything.git
 [submodule "vendor/plugins/hash4hash"]
 	path = vendor/plugins/hash4hash
-	url = git@github.com:html/hash4hash.git
+	url = git://github.com/html/hash4hash.git
 [submodule "vendor/plugins/comments"]
 	path = vendor/plugins/comments
-	url = git@github.com:html/comments.git
+	url = git://github.com/comments.git
