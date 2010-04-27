@@ -25,12 +25,12 @@
 [submodule "vendor/plugins/hash4hash"]
 	path = vendor/plugins/hash4hash
 	url = git://github.com/html/hash4hash.git
-[submodule "vendor/plugins/comments"]
-	path = vendor/plugins/comments
-	url = git://github.com/comments.git
 [submodule "vendor/plugins/app_config"]
 	path = vendor/plugins/app_config
 	url = http://github.com/ptzn/app_config.git
 [submodule "vendor/plugins/partial_renderer"]
 	path = vendor/plugins/partial_renderer
 	url = git://github.com/html/partial_renderer.git
+[submodule "vendor/plugins/comments"]
+	path = vendor/plugins/comments
+	url = git://github.com/html/comments.git
