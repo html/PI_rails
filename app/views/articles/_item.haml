@@ -1,6 +1,12 @@
 - link_text = capture do
   %div{ :class => 'top' + (rand(6) + 1).to_s }
   .item
-    = content
+    .fl{ :style => 'width: 350px' }
+      = content
+    .fr.w100
+      %small
+        %b
+          Коментарів: #{comments_count}
+    .clear
   %div{ :class => 'bottom' + (rand(6) + 1).to_s }
 = link_to link_text, item_url, :class => 'article fl'

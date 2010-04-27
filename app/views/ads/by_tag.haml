@@ -9,7 +9,7 @@
           = ad.title
           %br
           = simple_format truncate(ad.content)
-        = render :partial => 'articles/item', :locals => { :item_url => ad, :content => content }
+        = render :partial => 'articles/item', :locals => { :item_url => ad, :content => content, :comments_count => count_comments_for(ad) }
         .clear
     - else
       Немає жодного оголошення в даній категорії

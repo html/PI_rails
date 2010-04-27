@@ -9,14 +9,16 @@
         = article.title
         %br
         = truncate(strip_tags(article.content))
-      = render :partial => 'item', :locals => { :item_url => article, :content => content }
+        .clear
+        %br
+      = render :partial => 'item', :locals => { :item_url => article, :content => content, :comments_count => count_comments_for(article) }
       .clear
   - else
     - content = capture do
       Немає жодної статті
       - if is_admin
         , додати статтю
-    = render :partial => 'item', :locals => { :item_url => is_admin ? new_article_path : articles_path, :content => content }
+    = render :partial => 'item', :locals => { :item_url => is_admin ? new_article_path : articles_path, :content => content, :comments_count => 0 }
 
 - if is_admin
   .fr.h100.p5
