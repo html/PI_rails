@@ -43,10 +43,11 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/update_page_info', :controller => 'common', :action => 'update_page_info'
   map.connect '/search', :action => 'search', :controller => 'ads'
   map.subdomain_connect ':controller.:host/sitemap.xml', :action => 'sitemap'
+  map.subdomain_connect ':controller.:host/all/:page', :action => 'all', :page => 1
   map.subdomain_connect ':host/sitemap.xml', :controller => 'common', :action => 'sitemap'
   map.subdomain_connect ':controller.:host/new/:tag_list', :action => 'new'
   map.subdomain_connect ':controller.:host/create/:tag_list', :action => 'create'
-  map.subdomain_connect ':controller.:host/by_tag/:tag', :action => 'by_tag'
+  map.subdomain_connect ':controller.:host/by_tag/:tag/:page', :action => 'by_tag', :page => 1
   map.subdomain_connect ':controller.:host/delete/:id', :action => 'destroy'
   map.subdomain_connect ':controller.:host/:action/:id'
   map.root :controller => 'index'

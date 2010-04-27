@@ -10,16 +10,16 @@ class Ad < ActiveRecord::Base
     item.public = true
   end
 
-  def self.latest(options = {})
-    all({:order => 'created_at DESC', :conditions => { :public => true }}.merge(options))
+  def self.latest(options = {}, page = 1)
+    paginate({:order => 'created_at DESC', :conditions => { :public => true }, :per_page => AppConfig.ads_per_page, :page => page }.merge(options))
   end
 
   def self.latest_few
     latest({ :limit => 5 })
   end
 
-  def self.by_tag(tag)
-    find_tagged_with(tag, :order => 'created_at DESC', :conditions => { :public => true })
+  def self.by_tag(tag, page = 1)
+    tagged_with(tag, :order => 'created_at DESC', :conditions => { :public => true }).paginate(:page => page, :per_page => AppConfig.ads_per_page)
   end
 
   def self.by_cookies(cookies)

@@ -21,11 +21,11 @@
     .h
     .fl
       - for item in tags
-        = link_to_unless_current link_block.call(t(item), items_count(Ad.count_by_tag(item))), { :action => :by_tag, :tag => item }, { :class => "link w" }, &display_block
+        = link_to_unless_current link_block.call(t(item), items_count(Ad.count_by_tag(item))), { :action => :by_tag, :tag => item, :page => nil }, { :class => "link w" }, &display_block
     .h
     .hr
     .h
-    = link_to_unless_current link_block.call('Всі оголошення', items_count(Ad.public_count)), { :action => :all }, { :class => 'link w' }, &display_block
+    = link_to_unless_current link_block.call('Всі оголошення', items_count(Ad.public_count)), { :action => :all, :page => nil }, { :class => 'link w' }, &display_block
     .h
     .hr
     .h

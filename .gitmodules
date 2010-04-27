@@ -28,3 +28,6 @@
 [submodule "vendor/plugins/comments"]
 	path = vendor/plugins/comments
 	url = git://github.com/comments.git
+[submodule "vendor/plugins/app_config"]
+	path = vendor/plugins/app_config
+	url = http://github.com/ptzn/app_config.git

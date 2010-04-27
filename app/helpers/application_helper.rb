@@ -92,4 +92,12 @@ module ApplicationHelper
       opts[:template] % [item.to_i]
     end
   end
+
+  def pagination_for(items)
+    will_paginate items
+  end
+
+  def surround_with_pagination_for(items, &block)
+    surround pagination_for(items), &block
+  end
 end

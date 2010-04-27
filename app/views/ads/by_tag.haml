@@ -2,14 +2,15 @@
 - content_for :head do
   %link{ :rel => 'stylesheet', :href => url_for(:controller => :articles, :action => :css ) }
 .fl
-  - if !@ads.empty?
-    - for ad in @ads
-      - content = capture do
-        = ad.title
-        %br
-        = simple_format truncate(ad.content)
-      = render :partial => 'articles/item', :locals => { :item_url => ad, :content => content }
-      .clear
-  - else
-    Немає жодного оголошення в даній категорії
+  = surround_with_pagination_for @items do
+    - if !@ads.empty?
+      - for ad in @ads
+        - content = capture do
+          = ad.title
+          %br
+          = simple_format truncate(ad.content)
+        = render :partial => 'articles/item', :locals => { :item_url => ad, :content => content }
+        .clear
+    - else
+      Немає жодного оголошення в даній категорії
 = render :partial => 'right'

@@ -35,11 +35,11 @@ class AdsController < ApplicationController
     @tag = params[:tag]
     not_found if !tags.include?(@tag.to_sym)
     has_page_info_and_uses_it ['by_tag', @tag].join '-'
-    @ads = Ad.by_tag(@tag)
+    @ads = Ad.by_tag(@tag, params[:page])
   end
 
   def all
-    @ads = Ad.latest
+    @ads = Ad.latest({}, params[:page])
     render :by_tag
   end
 
@@ -48,7 +48,7 @@ class AdsController < ApplicationController
       @values = params[:q].to_s.split /\s+/
 
       if @values && !@values.empty?
-        @ads = Ad.title_or_content_like_any(@values)
+        @ads = Ad.title_or_content_like_any(@values).paginate(:page => params[:page], :per_page => AppConfig.ads_per_page)
       end
     end
 
