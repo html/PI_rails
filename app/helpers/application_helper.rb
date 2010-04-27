@@ -79,4 +79,17 @@ module ApplicationHelper
   def t(a, b= {})
     I18n.t(a, b)
   end
+
+  def items_count(item, options = {})
+    opts = {
+      :template => "&nbsp;(%s)",
+      :zero_count_text => ""
+    }.merge(options)
+
+    if item.zero?
+      opts[:zero_count_text]
+    else
+      opts[:template] % [item.to_i]
+    end
+  end
 end

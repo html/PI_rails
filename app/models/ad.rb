@@ -42,4 +42,12 @@ class Ad < ActiveRecord::Base
     self.public = false
     save
   end
+
+  def self.public_count
+    count(:conditions => { :public => true })
+  end
+
+  def self.count_by_tag(tag)
+    tagged_with(tag.to_s, :conditions => { :public => true }).size
+  end
 end
