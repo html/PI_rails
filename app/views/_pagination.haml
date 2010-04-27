@@ -1,0 +1,21 @@
+- once :pagination_style do stylesheet 'pagination' end
+.pagination
+  - if previous_page
+    = link_to "<", url_for_page(previous_page), :class => 'entry link'
+  - else
+    .entry
+      = "<"
+
+  - for i in first_page..(last_page)
+    - if i == current_page
+      .entry.active
+        = i
+    - else
+      = link_to i, url_for_page(i), :class => 'entry link'
+
+  - if next_page
+    = link_to ">", url_for_page(next_page), :class => 'entry link'
+  - else
+    .entry
+      = ">"
+.clear

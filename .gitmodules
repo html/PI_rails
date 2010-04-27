@@ -31,3 +31,6 @@
 [submodule "vendor/plugins/app_config"]
 	path = vendor/plugins/app_config
 	url = http://github.com/ptzn/app_config.git
+[submodule "vendor/plugins/partial_renderer"]
+	path = vendor/plugins/partial_renderer
+	url = git://github.com/html/partial_renderer.git
