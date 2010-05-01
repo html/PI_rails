@@ -4,18 +4,18 @@
   %link{ :rel => 'stylesheet', :href => url_for(:controller => :articles, :action => :css ) }
 .fl
   = render :partial => 'search'
-  = surround_with_pagination_for @ads do
-    - if !@ads.empty?
+  - if !@ads.empty?
+    = surround_with_pagination_for @ads do
       - for ad in @ads
         - content = capture do
           = ad.title
           %br
           = simple_format truncate(ad.content)
-        = render :partial => 'articles/item', :locals => { :item_url => ad, :content => highlight(content, @values) }
+        = render :partial => 'articles/item', :locals => { :item_url => ad, :content => highlight(content, @values), :comments_count => count_comments_for(ad) }
         .clear
+  - else
+    - if params[:q] && !params[:q].empty?
+      Пошук не повернув результатів
     - else
-      - if params[:q] && !params[:q].empty?
-        Пошук не повернув результатів
-      - else
-        Будь ласка введіть запит та натисніть кнопку "Пошук"
+      Будь ласка введіть запит та натисніть кнопку "Пошук"
 = render :partial => 'right'

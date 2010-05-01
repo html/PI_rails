@@ -74,4 +74,10 @@ class AdsControllerTest < ActionController::TestCase
       assert ad.public
     end
   end
+
+  context "search action" do
+    should "be displayed correctly" do
+      assert_response :success
+    end
+  end
 end
