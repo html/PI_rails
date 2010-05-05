@@ -32,7 +32,7 @@ class ActiveSupport::TestCase
   include RR::Adapters::TestUnit
 
   setup do
-    Sham.reset(:before_each)
+    Sham.reset
   end
 
   def login_as(user)

@@ -9,6 +9,7 @@ class AdsController < ApplicationController
   def show
     @ad = Ad.find params[:id], :conditions => { :public => true }
     not_found unless @ad
+    @ad.page_info.increment!(:views)
     @owned_by_user = ad_is_owned_by_user(@ad)
   end
 

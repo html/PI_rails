@@ -69,7 +69,7 @@ class ApplicationController < ActionController::Base
       item = PageInfo.record_for(name) || PageInfo.create_record_for(name)
 
       if arg.to_s == request.params[:action]
-        PageInfo.page = item
+        set_page item
       end
     end
   end
@@ -80,7 +80,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_page_id(id)
-    PageInfo::page = PageInfo.find_by_page_id(id)
+    set_page PageInfo.find_by_page_id(id)
+  end
+
+  def set_page(page)
+    page.increment!(:views)
+    PageInfo::page = page
   end
 
   def assign_ads_from_cookies

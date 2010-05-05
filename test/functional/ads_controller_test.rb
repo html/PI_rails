@@ -21,6 +21,18 @@ class AdsControllerTest < ActionController::TestCase
       get :show, :id => Ad.make.id
       assert_template 'show'
     end
+
+    should "increase ad views count" do
+      class ::X;end
+      @ad = Ad.make
+      @rec = PageInfo.record_for(@ad)
+      old_views = @rec.views
+
+      get :show, :id => @ad.id
+
+      assert_template 'show'
+      assert_equal old_views + 1, PageInfo.record_for(@ad).views
+    end
   end
   
   context "new action" do
