@@ -100,4 +100,13 @@ module ApplicationHelper
   def surround_with_pagination_for(items, &block)
     surround pagination_for(items), &block
   end
+
+  def add_http(url)
+    md = url.match /^http/
+    if md
+      url
+    else
+      "http://#{url}"
+    end
+  end
 end

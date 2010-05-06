@@ -53,7 +53,7 @@
 .clear
 .fl.wcenter
   - @links.each do |item|
-    = link_to h([item.description, item.value].join ' - '), item.value, :target => '_blank', :class => 'link wc'
+    = link_to h([item.description, item.value].join ' - '), add_http(item.value), :target => '_blank', :class => 'link wc'
     .clear
 
   .cloud.center{ :align => 'center' }
