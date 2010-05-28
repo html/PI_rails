@@ -6,33 +6,38 @@ function updatePoint(ll){
   }, 'json');
 }
 
+function getMarker(ll){
+  if(!getMarker.marker){
+    getMarker.marker = new GMarker(ll, { draggable: true});
+    getMarker.marker.disableDragging();
+    window.map.addOverlay(getMarker.marker);
+    GEvent.addListener(getMarker.marker, 'dragstart', function(){
+      getMarker.marker.closeInfoWindow();
+    });
+    GEvent.addListener(getMarker.marker, 'dragend', function(){
+      getMarker.marker.disableDragging();
+      updatePoint(getMarker.marker.getLatLng());
+    });
+  }else{
+    getMarker.marker.setPoint(ll);
+  }
+
+  return getMarker.marker;
+}
+
 function setMarkerCenter(result){
     var ll = new GLatLng(result[0], result[1]);
-    if(!setMarkerCenter.marker){
-      setMarkerCenter.marker = new GMarker(ll, { draggable: true});
-      setMarkerCenter.marker.disableDragging();
-      window.map.addOverlay(setMarkerCenter.marker);
-      GEvent.addListener(setMarkerCenter.marker, 'dragstart', function(){
-        setMarkerCenter.marker.closeInfoWindow();
-      });
-      GEvent.addListener(setMarkerCenter.marker, 'dragend', function(){
-        setMarkerCenter.marker.disableDragging();
-        updatePoint(setMarkerCenter.marker.getLatLng());
-      });
-    }else{
-      setMarkerCenter.marker.setPoint(ll);
-    }
 
-    setMarkerCenter.marker.show();
+    getMarker(ll).show();
     window.map.panTo(ll);
 }
 
 function changeMarkerPosition(){
   window.showMap(true);
-  var marker=setMarkerCenter.marker;
+  var marker = getMarker.marker || getMarker(window.map.getCenter());
   marker.show();
   marker.enableDragging();
-  marker.openInfoWindowHtml('<div style="padding:5px">Перетягніть прапорець щоб змінити<br/> позицію фотографії на карті</div>');
+  marker.openInfoWindowHtml('<div style="padding:5px">Перетягніть прапорець щоб змінити<br/> позицію фотографії на карті<br/>Для зручності використовуйте кнопки <br/>"збільшити" і "зменшити" в лівому верхньому кутку</div>');
 }
 
 function updateMapTopPosition(){
