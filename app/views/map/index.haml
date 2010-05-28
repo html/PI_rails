@@ -2,20 +2,8 @@
 - require_jquery
 - require_jquery_fancybox
 = render :partial => '/preload_fb_g'
+- stylesheet 'map'
 - content_for :head do
-  %style{ :type => 'text/css' }
-    :sass
-      .border
-        border: 1px solid white
-      .gmnoprint
-        z-index: 1000
-        color: black
-      td
-        overflow: visible
-      .hidden 
-        display: none
-      #zoomControls
-        z-index: 9
   = javascript_include_tag 'jquery/jquery.ba-bbq'
   = javascript_include_tag 'jquery/jquery.scrollTo'
   = include_google_map
