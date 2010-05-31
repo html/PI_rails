@@ -4,7 +4,6 @@ class PhotosController < ApplicationController
 
   access_control do |ab,cd|
     allow :admin
-    debugger;true
     allow all, :to => [:index, :save_point, :coord, :list]
     allow logged_in, :to => [:my, :add]
     #XXX
