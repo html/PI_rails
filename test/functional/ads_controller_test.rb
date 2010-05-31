@@ -23,7 +23,6 @@ class AdsControllerTest < ActionController::TestCase
     end
 
     should "increase ad views count" do
-      class ::X;end
       @ad = Ad.make
       @rec = PageInfo.record_for(@ad)
       old_views = @rec.views
@@ -90,6 +89,89 @@ class AdsControllerTest < ActionController::TestCase
   context "search action" do
     should "be displayed correctly" do
       assert_response :success
+    end
+  end
+
+  context "my action" do
+    should "be displayed correctly when not logged in" do
+      get :my
+      assert_response :success
+      assert_template :by_tag
+      assert_select '.article .item', 0
+    end
+
+    should "not display my_ads menu" do
+      get :my
+      assert_select '.submenu_item', 0
+    end
+
+    should "not display my_ads menu if we had some ads and deleted them" do
+      login
+      Ad.make(:user_id => @logged_user.id).remove
+
+      get :my
+      assert_select '.submenu_item', 0
+    end
+
+    should "be displayed correctly when logged in" do
+      login
+      get :my
+      assert_response :success
+      assert_template :by_tag
+      assert_select '.article .item', 0
+    end
+
+    should "contain some items if user has ads" do
+      login
+      2.times do
+        Ad.make :user_id => @logged_user.id
+      end
+
+      get :my
+      assert_response :success
+      assert_template :by_tag
+      assert_select '.article .item', 2
+    end
+
+    should "be paginated" do
+      login
+
+      10.times do
+        Ad.make :user_id => @logged_user.id
+      end
+
+      assert_paginated :selector => '.article .item', :items_per_page => 5, :try_pages => 2 do |i|
+        get :my, :page => i
+        assert_response :success
+        assert_template :by_tag
+      end
+    end
+
+    context "cookied ads" do
+      should "contain some items if user has cookied ads" do
+        2.times do |i|
+          make_cookied_ad
+        end
+
+        get :my
+        assert_select '.article .item', 2
+      end
+
+      should "be paginated" do
+        10.times do |i|
+          make_cookied_ad
+        end
+
+        get :my
+        assert_select '.article .item', 5
+      end
+
+      should "display my_ads menu" do
+        make_cookied_ad
+
+        get :my
+        assert_select '.submenu_item', 1
+      end
     end
   end
 end

@@ -24,12 +24,11 @@ $(function(){
           success : function(result){
             if(result.success){
               $('#addLink').jqmHide();
-              $('#photos').load(list_url);
               $.scrollTo('body', {
                 duration: 500, 
                 onAfter: function(){
-                  $('.soria').prepend('<span class="message">Успішно додано</span>');
-                  form.clearForm();
+                  alert('Успішно додано');
+                  document.location.href = '/my';
                 }
               });
             }else{

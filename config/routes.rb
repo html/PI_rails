@@ -44,6 +44,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/search', :action => 'search', :controller => 'ads'
   map.subdomain_connect ':controller.:host/sitemap.xml', :action => 'sitemap'
   map.subdomain_connect ':controller.:host/all/:page', :action => 'all', :page => 1
+  map.subdomain_connect 'photos.:host/my/:page', :action => 'my', :page => 1, :controller => 'photos'
+  map.subdomain_connect 'photos.:host/:page', :action => 'index', :page => 1, :controller => 'photos', :requirements => { :page => /[0-9]+/ }
   map.subdomain_connect ':host/sitemap.xml', :controller => 'common', :action => 'sitemap'
   map.subdomain_connect ':controller.:host/new/:tag_list', :action => 'new'
   map.subdomain_connect ':controller.:host/create/:tag_list', :action => 'create'

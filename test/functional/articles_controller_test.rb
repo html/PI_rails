@@ -21,6 +21,11 @@ class ArticlesControllerTest < ActionController::TestCase
       get :new
       assert_template 'new'
     end
+
+    should "not be rendered when not logged in" do
+      post :create
+      assert_access_denied
+    end
   end
   
   context "create action" do
@@ -37,6 +42,11 @@ class ArticlesControllerTest < ActionController::TestCase
       post :create
       assert_redirected_to article_url(assigns(:article))
     end
+
+    should "not be rendered when not logged in" do
+      post :create
+      assert_access_denied
+    end
   end
   
   context "edit action" do
@@ -44,6 +54,11 @@ class ArticlesControllerTest < ActionController::TestCase
       login_as_admin
       get :edit, :id => Article.make.id
       assert_template 'edit'
+    end
+
+    should "not be rendered when not logged in" do
+      get :edit, :id => Article.make.id
+      assert_access_denied
     end
   end
   
@@ -62,6 +77,11 @@ class ArticlesControllerTest < ActionController::TestCase
       put :update, :id => Article.make.id
       assert_redirected_to article_url(assigns(:article))
     end
+
+    should "not be rendered when not logged in" do
+      put :update, :id => Article.make.id
+      assert_access_denied
+    end
   end
   
   context "destroy action" do
@@ -71,6 +91,17 @@ class ArticlesControllerTest < ActionController::TestCase
       delete :destroy, :id => article.id
       assert_redirected_to articles_url
       assert !Article.exists?(article.id)
+    end
+
+    should "not be rendered when not logged in" do
+      delete :destroy, :id => Article.make.id
+      assert_access_denied
+    end
+  end
+
+  context "css action" do
+    should "be with valid route" do
+      assert_routes_equal "http://articles.#{APPLICATION_HOST}/css", :controller => 'articles', :action => 'css'
     end
   end
 end

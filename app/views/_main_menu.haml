@@ -6,12 +6,18 @@
   = link_to '<span>Форум</span>', forum_url, :class => 'button'
   %br
   = link_to '<span style="font-size:12px">Оголошення</span>', { :controller => :ads, :action => :index }, :class => 'button tooltip', :title => 'Вперше на сайті - піщанські оголошення'
-  - if @current_user && @current_user.has_ads? || !@cookied_ads.empty?
-    .clear
-    = link_to 'Мої оголошення', { :controller => :ads, :action => :my }, :class => "link"
-    .clear
+  - if (@current_user && @current_user.has_ads?) || !@cookied_ads.empty?
+    .submenu_item
+      .clear
+      = link_to 'Мої оголошення', { :controller => :ads, :action => :my }, :class => "link"
+      .clear
   %br
   = link_to new_mark + '<span>Галерея</span>', { :controller => :photos, :action => :index }, :class => 'button tooltip', :title => 'Нова фішка - інтеграція з картою'
+  - if (@current_user && @current_user.has_photos?)
+    .submenu_item
+      .clear
+      = link_to 'Мої фотографії', { :controller => :photos, :action => :my }, :class => "link"
+      .clear
   %br
   = link_to '<span>Статті</span>', { :controller => :articles, :action => :index }, :class => 'button', :title => 'Статті'
   %br

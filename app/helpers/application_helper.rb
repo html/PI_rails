@@ -109,4 +109,10 @@ module ApplicationHelper
       "http://#{url}"
     end
   end
+
+  def only_authorized_user(&block)
+    if @current_user
+      yield
+    end
+  end
 end

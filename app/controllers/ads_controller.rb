@@ -74,9 +74,9 @@ class AdsController < ApplicationController
         end
       end
 
-      @ads = @current_user.ads
+      @ads = @current_user.ads(params[:page])
     else
-      @ads = @cookied_ads
+      @ads = @cookied_ads.paginate :page => params[:page], :per_page => AppConfig.ads_per_page
     end
 
     @title = 'Мої оголошення'

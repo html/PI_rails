@@ -1,10 +1,17 @@
 class PhotosController < ApplicationController
-  action :destroy, :create_json => :add
+  before_filter :assign_show_map, :only => [:index, :my]
+  action :create_json => :add
 
-  access_control do
+  access_control do |ab,cd|
     allow :admin
+    debugger;true
     allow all, :to => [:index, :save_point, :coord, :list]
+    allow logged_in, :to => [:my, :add]
+    #XXX
+    allow logged_in, :of => :photo, :to => [:destroy]
   end
+
+  before_filter :set_owner_id, :only => [:add]
 
   def list
     @photos = Photo.all
@@ -12,8 +19,7 @@ class PhotosController < ApplicationController
   end
 
   def index
-    @photos = Photo.all_with_points
-    @show_map = cookies[:include_map].nil? ?  1 : cookies[:include_map].to_i
+    @photos = Photo.paginate_with_points(params[:page])
   end
 
   def cords
@@ -40,8 +46,33 @@ class PhotosController < ApplicationController
     render :text => [point.lat, point.lng].to_json
   end
 
+  def my
+    @title = "Фотогалерея - мої фотографії"
+    @photos = @current_user.photos(params[:page])
+    @display_delete_link = true
+    render :index
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    not_found unless @photo
+
+    flash[:notice] = 'Photo was successfully destroyed'
+    @photo.update_attributes :public => false
+
+    redirect_to '/my'
+  end
+
   protected
     def not_found_json
       render :text => nil.to_json
+    end
+
+    def assign_show_map
+      @show_map = cookies[:include_map].nil? ?  1 : cookies[:include_map].to_i
+    end
+
+    def set_owner_id
+      params[:photo][:owner_id] = current_user.id
     end
 end

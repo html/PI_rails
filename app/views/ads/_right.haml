@@ -1,5 +1,5 @@
 - stylesheet 'poll', 'link', 'ads'
-- display_block = Proc.new do |item|
+- display_block = lambda do |item|
   - r = capture do
     .dashed.w
       =(item)
@@ -12,30 +12,29 @@
     .fr
       =count
   - r
-.fr#poll
-  .top
-  .content
-    %h4.p5p10 Категорії оголошень
-    .h
-    .hr
-    .h
-    .fl
-      - for item in tags
-        = link_to_unless_current link_block.call(t(item), items_count(Ad.count_by_tag(item))), { :action => :by_tag, :tag => item, :page => nil }, { :class => "link w" }, &display_block
-    .h
-    .hr
-    .h
-    = link_to_unless_current link_block.call('Всі оголошення', items_count(Ad.public_count)), { :action => :all, :page => nil }, { :class => 'link w' }, &display_block
-    .h
-    .hr
-    .h
-    = link_to_unless_current 'Пошук оголошень', { :action => :search }, { :class => 'link w' }, &display_block
-    .h
-    .hr
-    .h
-    - if !defined?(@tag)
-      = link_to_unless_current 'Додати оголошення', { :action => :new }, { :class => 'link w' }, &display_block
-    - else
-      = link_to 'Додати оголошення в цьому розділі', { :action => :new, :tag_list => @tag }, :class => 'link w'
-    .clear
-  .bottom
+- content = capture do
+  %h4.p5p10 Категорії оголошень
+  .h
+  .hr
+  .h
+  .fl
+    - for item in tags
+      = link_to_unless_current link_block.call(t(item), items_count(Ad.count_by_tag(item))), { :action => :by_tag, :tag => item, :page => nil }, { :class => "link w" }, &display_block
+  .h
+  .hr
+  .h
+  = link_to_unless_current link_block.call('Всі оголошення', items_count(Ad.public_count)), { :action => :all, :page => nil }, { :class => 'link w' }, &display_block
+  .h
+  .hr
+  .h
+  = link_to_unless_current 'Пошук оголошень', { :action => :search }, { :class => 'link w' }, &display_block
+  .h
+  .hr
+  .h
+  - if !defined?(@tag)
+    = link_to_unless_current 'Додати оголошення', { :action => :new }, { :class => 'link w' }, &display_block
+  - else
+    = link_to 'Додати оголошення в цьому розділі', { :action => :new, :tag_list => @tag }, :class => 'link w'
+  .clear
+.fr
+  = render :partial => '/right_block', :locals => { :content => content }

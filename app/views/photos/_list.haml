@@ -1,6 +1,10 @@
 - @photos.each do |item|
-  .fl.w100.h100.p5
-    - if is_admin
-      .fr{ :style => 'position: absolute' }
-        = link_to image_tag('/images/icons/remove.png', :width => 20, :height => 20), :id => item.to_param, :action => :destroy
-    = link_to image_tag(item.image.url(:thumb), :alt => item.title), item.image.url(:full), :class => 'fancy tooltip', :title => item.title, :rel => 'fancy'
+  .fl.p5
+    .w100.h100
+      - if is_admin
+        .fr{ :style => 'position: absolute' }
+          = link_to image_tag('/images/icons/remove.png', :width => 20, :height => 20), :id => item.to_param, :action => :destroy
+      = link_to image_tag(item.image.url(:thumb), :alt => item.title), item.image.url(:full), :class => 'fancy tooltip', :title => item.title, :rel => 'fancy'
+    - if @display_delete_link
+      .clear
+      = link_to 'Видалити', url_for(:controller => :photos, :action => :destroy, :id => item.id), :class => 'link', :style => "width:80px;float:left"

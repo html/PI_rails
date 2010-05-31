@@ -1,5 +1,6 @@
 common:
   ads_per_page: 5
+  photos_per_page: 16
   support_email: admin@myapp.com
   root_url: myapp.com
 

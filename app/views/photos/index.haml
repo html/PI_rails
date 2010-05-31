@@ -1,4 +1,4 @@
-- title 'Фотогалерея'
+- title defined?(@title) ? @title : 'Фотогалерея'
 - add_url = url_for( :controller => :photos, :action => :add )
 - require_jquery
 - require_jquery_modal
@@ -20,51 +20,48 @@
     mix_in_the_url = function(){};
 
   = javascript_include_tag 'map2', 'gallery'
-  - if is_admin
+  - only_authorized_user do
     :javascript
       var ad_url =  #{add_url.to_json};
       var list_url = #{url_for(:action => 'list').to_json};
     = javascript_include_tag 'gallery_admin'
-  %style{ :type => 'text/css' }
-    :sass
-      .w100
-        width: 100px
-      .h100
-        height: 100px
-      .p5
-        padding: 5px
+  = stylesheet_link_tag 'photos'
 .clear
 .fl.wcenter
   - if !@photos.empty?
     #photos
-      = render :partial => 'list'
+      = surround_with_pagination_for @photos do
+        = render :partial => 'list'
   - else
     Немає фотографій
-
 .fr
-  - if is_admin
-    .fr
-      = link_to_void image_tag('/images/icons/add.png', :width => 50, :height => 50), :id => 'add_image', :class => 'tooltip', :title => 'Додати фото'
+  - only_authorized_user do
+    - content = capture do
+      %b 
+        Ви можете додавати свої фотографії на сайт
+      Будьте ласкаві, додавайте фото які пов'язані тільки з Піщанкою.
+      = link_to_void 'Додати фото', :id => 'add_image', :class => 'tooltip link w110', :title => 'Додати фото'
+    = render :partial => '/right_block', :locals => { :content => content }
   .clear
   = render :partial => '/poll'
 #zoomControls.fl{ :style => 'z-index: 900;display:none;' }
   #showMap.fl
     = link_to_void image_tag('/images/icons/map.png', :width => 50, :height => 50)
-  - if is_admin
+  - only_authorized_user do
     #editPoint.fl
       = link_to_function image_tag('/images/icons/edit.png', :width => 50, :height => 50), 'changeMarkerPosition()'
 #map_outer{ :style => "width: 200px;height: 200px;position: relative;padding:0;z-index: 90;left: -1500px" }
   #map_container{ :style => 'width:100%;height: 100%;position:absolute;' }
     \&nbsp;
 
-- if is_admin
+- only_authorized_user do
   #addLink.jqmWindow{ :style => 'display:none' }
     %div{ :align => 'center' }
       %h2 Додати фотографію
       - form_for 'photo', :url => add_url, :html => { :multipart => true, :method => 'post', :id => 'jqmForm' } do
         %table
           %tr
-            %td{ :align => 'right' } Заголовок
+            %td{ :align => 'right' } Заголовок (необов'язково)
             %td= text_field 'photo', 'title', :class => 'w200'
             %td.for_error{ :width => '180' }
           %tr
