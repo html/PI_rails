@@ -115,4 +115,8 @@ module ApplicationHelper
       yield
     end
   end
+
+  def vk_login_widget
+    render :partial => '/vk_api'
+  end
 end

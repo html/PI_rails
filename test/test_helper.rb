@@ -90,4 +90,12 @@ class ActiveSupport::TestCase
   def assert_not_found
     assert_response 404
   end
+
+  def assert_contains_vk_login_widget
+    assert_select '#vk_api_transport'
+  end
+
+  def assert_does_not_contain_vk_login_widget
+    assert_select '#vk_api_transport', :count => 0
+  end
 end

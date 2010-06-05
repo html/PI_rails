@@ -2,11 +2,10 @@ common:
   ads_per_page: 5
   photos_per_page: 16
   support_email: admin@myapp.com
-  root_url: myapp.com
+  vk_app_id: 1887010
 
 production:
   email_exceptions: true
 
 development:
   support_email: user@localhost
-  root_url: localhost:3000
