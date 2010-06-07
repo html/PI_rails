@@ -98,4 +98,29 @@ class ActiveSupport::TestCase
   def assert_does_not_contain_vk_login_widget
     assert_select '#vk_api_transport', :count => 0
   end
+
+  def assert_javascript_loaded(js)
+    str =  "/javascripts/#{js}.js"
+    assert_select 'script[type=text/javascript][src^=?]', str, 1
+  end
+
+  def assert_jquery_loaded
+    assert_javascript_loaded 'jquery.min'
+  end
+
+  def assert_jquery_modal_loaded
+    assert_jquery_loaded
+
+    assert_javascript_loaded 'jquery/jqModal'
+    assert_css_loaded '/stylesheets/jqModal'
+  end
+
+  def assert_css_loaded(css)
+    assert_select 'link[type=text/css][href^=?]', css, 1
+  end
+
+  def assert_map_coord_choice_loaded
+    assert_jquery_modal_loaded
+    assert_javascript_loaded 'map_coord_choice'
+  end
 end

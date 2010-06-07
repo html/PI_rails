@@ -30,3 +30,7 @@ PhpbbUser.blueprint do |b|
   b.group_id 1
 end
 
+Point.blueprint do |b|
+  lat 1
+  lng 1
+end

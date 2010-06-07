@@ -1,6 +1,10 @@
 - title @ad.title
 
 .fl.wcenter
+  - if @owned_by_user
+    Оголошення уже неактуальне ? 
+    = link_to 'Видаліть його', :action => :destroy
+  .clear
   %h5 Оголошення:
   = simple_format h @ad.content
   - if @ad.photos.size
@@ -18,12 +22,18 @@
       .clear
   %h5 Контакти:
   = simple_format h @ad.contacts
-  - if @owned_by_user
-    Оголошення уже неактуальне ? 
-    = link_to 'Видаліть його', :action => :destroy
-  .clear
+  - if @ad.point
+    %h5 Місце:
+    - require_google_map_v2_scripts
+    #mapContainer{ :style => 'width:482px;height:300px' }
+    :javascript
+      var map = new GMap2($('#mapContainer')[0]);
+      var point = new GLatLng(#{@ad.point.lat}, #{@ad.point.lng});
+      map.addOverlay(new GMarker(point));
+      map.setCenter(point, 14, G_SATELLITE_MAP);
+      map.addControl(new GSmallZoomControl());
   %br
-  Коментарі
+  %h5 Коментарі
   %hr
   = comments_for @ad
 

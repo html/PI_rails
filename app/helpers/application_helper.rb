@@ -30,6 +30,14 @@ module ApplicationHelper
     nil
   end
 
+  def require_google_map_v2_scripts
+    once :require_google_map_scripts do
+      content_for :head do
+        include_google_map
+      end
+    end
+  end
+
   def global_url_for(str)
     @host + str
   end

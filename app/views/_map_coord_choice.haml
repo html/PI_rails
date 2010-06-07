@@ -1,0 +1,23 @@
+= link_to_function link_title, 'choosePoint()'
+- options = {:lat => 48.208437, :lng => 28.886089}
+%div
+  - if defined?(frm)
+    - options[:hidden_field_selector] = "##{frm.object_name}_#{name}"
+    = frm.hidden_field name, :value => frm.object.send(name)
+  - else
+    - options[:hidden_field_selector] = "##{name}"
+    = hidden_field_tag name, frm.object.send(name)
+  #modalMap.jqmWindow{ :style => 'display:none;' }
+    %br
+    Знайдіть потрібне місце на карті, клацніть "поставити точку" а потім клацніть у потрібному(вибраному) місці
+    %br
+    %br
+    #mapContainer{ :style => 'width:600px;height:200px;' }
+    %br
+    = link_to_void t('Save'), :class => 'save link'
+    = link_to_void t('Cancel (delete coord)'), :class => 'jqmClose link'
+    .fr
+      = link_to_void t('Set coord'), :class => 'link', :id => 'set_point'
+
+:javascript 
+  choosePoint = createMapSelector(#{options.to_json});

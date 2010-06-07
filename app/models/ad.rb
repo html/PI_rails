@@ -5,6 +5,7 @@ class Ad < ActiveRecord::Base
   acts_as_taggable
   validates_presence_of :title, :content, :tag_list, :contacts
   has_and_belongs_to_many :photos
+  has_one :point, :as => :item
 
   before_create do |item|
     item.public = true
@@ -49,5 +50,19 @@ class Ad < ActiveRecord::Base
 
   def self.count_by_tag(tag)
     tagged_with(tag.to_s, :conditions => { :public => true }).size
+  end
+
+  def map_point
+    if point
+      "#{point.lat}x#{point.lng}"
+    else
+      ""
+    end
+  end
+
+  def map_point=(txt)
+    lat,lng = txt.split('x').each &:to_i
+
+    (point || build_point).update_attributes! :lat => lat, :lng => lng
   end
 end

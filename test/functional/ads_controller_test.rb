@@ -32,12 +32,32 @@ class AdsControllerTest < ActionController::TestCase
       assert_template 'show'
       assert_equal old_views + 1, PageInfo.record_for(@ad).views
     end
+
+    should "render place if there is point for Ad" do
+      @ad = Ad.make :point => nil
+
+      get :show, :id => @ad.id
+
+      assert_select 'h5', :text => /Місце/, :count => 0
+      assert_select '#mapContainer', :count => 0
+    end
+
+    should "not render place if there is no point for Ad" do
+      @ad = Ad.make :point => Point.make
+
+      get :show, :id => @ad.id
+
+      assert_select 'h5', :text => /Місце/, :count => 1
+      assert_select '#mapContainer', :count => 1
+    end
   end
   
   context "new action" do
     should "render new template" do
       get :new
       assert_template 'new'
+      
+      assert_map_coord_choice_loaded
     end
   end
   

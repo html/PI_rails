@@ -5,6 +5,7 @@ require 'create_json'
 require 'phpbb_extension'
 require 'comments/comment'
 require 'I18n'
+require 'map_coord_choice'
 
 class ApplicationController < ActionController::Base
   include PhpbbAuth
