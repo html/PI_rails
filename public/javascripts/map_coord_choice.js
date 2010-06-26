@@ -13,6 +13,20 @@ function createMapSelector(options){
         var point = new GLatLng(options.lat, options.lng);
       }
 
+      //Begin load kml file
+      var map = choosePoint.map
+      var mapurl = "/pi.kml";
+
+      exml = new EGeoXml('exml', map, mapurl); //Default onload layer
+
+      GEvent.addListener(exml, 'parsed', function(){
+        map.setCenter(point, 14);
+      });
+
+      exml.parse();
+      //End load kml file
+
+
       choosePoint.map.setCenter(point, 14, G_SATELLITE_MAP);
       choosePoint.map.checkResize();
       choosePoint.map.addControl(new GSmallZoomControl());

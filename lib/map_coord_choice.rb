@@ -2,6 +2,7 @@ ActionView::Helpers::FormHelper.class_eval do
   def require_map_coord_choice
     require_jquery_modal
     require_google_map_v2_scripts
+    require_egeoxml
 
     once :require_map_coord_choice do
       javascript 'map_coord_choice'

@@ -25,13 +25,10 @@
   - if @ad.point
     %h5 Місце:
     - require_google_map_v2_scripts
+    - set_js_option 'lat', @ad.point.lat
+    - set_js_option 'lng', @ad.point.lng
+    - javascript 'egeoxml', 'egeoxml_ext', 'ads_show'
     #mapContainer{ :style => 'width:482px;height:300px' }
-    :javascript
-      var map = new GMap2($('#mapContainer')[0]);
-      var point = new GLatLng(#{@ad.point.lat}, #{@ad.point.lng});
-      map.addOverlay(new GMarker(point));
-      map.setCenter(point, 14, G_SATELLITE_MAP);
-      map.addControl(new GSmallZoomControl());
   %br
   %h5 Коментарі
   %hr

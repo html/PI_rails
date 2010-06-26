@@ -119,8 +119,16 @@ class ActiveSupport::TestCase
   end
 
   def assert_javascript_loaded(js)
+    assert_javascript_count(js, 1)
+  end
+
+  def assert_javascript_not_loaded(js)
+    assert_javascript_count(js, 0)
+  end
+
+  def assert_javascript_count(js, count)
     str =  "/javascripts/#{js}.js"
-    assert_select 'script[type=text/javascript][src^=?]', str, 1
+    assert_select 'script[type=text/javascript][src^=?]', str, :count => count
   end
 
   def assert_jquery_loaded
@@ -141,6 +149,19 @@ class ActiveSupport::TestCase
   def assert_map_coord_choice_loaded
     assert_jquery_modal_loaded
     assert_javascript_loaded 'map_coord_choice'
+    assert_egeoxml_loaded
+  end
+
+  def assert_egeoxml_loaded
+    ['egeoxml', 'egeoxml_ext'].each do |script|
+      assert_javascript_loaded script
+    end
+  end
+
+  def assert_egeoxml_not_loaded
+    ['egeoxml', 'egeoxml_ext'].each do |script|
+      assert_javascript_not_loaded script
+    end
   end
 
   def browser

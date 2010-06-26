@@ -38,6 +38,12 @@ module ApplicationHelper
     end
   end
 
+  def require_egeoxml
+    once :require_egeoxml do
+      javascript 'egeoxml', 'egeoxml_ext'
+    end
+  end
+
   def global_url_for(str)
     @host + str
   end
