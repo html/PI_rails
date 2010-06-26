@@ -6,7 +6,7 @@ class PhotosControllerTest < ActionController::TestCase
     assert_select '.fl.p5'  do |tag|
       assert_select tag[0], '.w100.h100'
       @url = "http://photos.#{APPLICATION_HOST}/delete/#{Photo.last.id}"
-      assert_select tag[0], 'a.link[href=?]', @url, :text => "Видалити"
+      assert_select tag[0], 'a.link[href=?]', @url, :text => "Видалити", :onclick => /confirm/
     end
   end
 
@@ -64,9 +64,29 @@ class PhotosControllerTest < ActionController::TestCase
     should "show link to my photos" do
       get :index
     end
+
+    should "not show deleted photos" do
+      Photo.delete_all
+      Photo.make :public => false
+
+      get :index
+
+      assert_select '.h100.w100', :count => 0
+    end
   end
 
   context "my action" do
+    should "not show deleted photos" do
+      login
+
+      Photo.delete_all
+      Photo.make :public => false, :owner_id => @logged_user.id
+
+      get :my
+
+      assert_select '.h100.w100', :count => 0
+    end
+
     should "deny when not logged in" do
       get :my
       assert_access_denied
@@ -157,6 +177,27 @@ class PhotosControllerTest < ActionController::TestCase
       post :add, :photo => { :image => fixture_file_upload('correct_image.png', 'image/png') }
 
       assert_access_denied
+    end
+
+    watir_test do
+      should "add photo" do
+        browser.goto "http://photos.#{APPLICATION_HOST}"
+        browser.link(:id, 'add_image').click
+        browser.text_field(:id, 'photo_title').set 'Test photo'
+        browser.file_field(:id, 'photo_image').set VALID_IMAGE_PATH
+        
+        browser.startClicker('OK')
+        browser.link(:class, 'save link').click
+
+        while "http://photos.#{APPLICATION_HOST}/my" != browser.url do
+          puts "waiting till page reloads ...\n"
+          sleep 1
+        end
+
+        browser.wait
+
+        assert_equal("http://photos.#{APPLICATION_HOST}/my", browser.url)
+      end
     end
   end
 

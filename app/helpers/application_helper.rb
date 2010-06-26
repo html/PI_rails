@@ -127,4 +127,23 @@ module ApplicationHelper
   def vk_login_widget
     render :partial => '/vk_api'
   end
+  
+  def set_js_option(key, val)
+    @js_options ||= {}
+    @js_options[key] = val
+  end
+
+  def display_javascript_options
+    if @js_options && !@js_options.empty?
+      javascript_tag do
+        result = ''
+
+        @js_options.each do |key,val|
+          result += "window.#{key} = #{val.to_json};"
+        end
+
+        result
+      end
+    end
+  end
 end

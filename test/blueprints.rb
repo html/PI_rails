@@ -22,6 +22,11 @@ Ad.blueprint do
   tag_list 'asdf'
 end
 
+Ad.blueprint(:invalid) do
+  title nil
+  content nil
+end
+
 Article.blueprint do
   
 end

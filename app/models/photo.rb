@@ -11,7 +11,7 @@ class Photo < ActiveRecord::Base
   #validates_presence_of :title
 
   def before_create
-    self.public = true unless self.public
+    self.public = true if self.public.nil?
   end
 
   def self.random

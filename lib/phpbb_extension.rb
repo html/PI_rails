@@ -14,7 +14,7 @@ PhpbbUser.class_eval do
   end
 
   def photos(page)
-    Photo.paginate_by_owner_id id, :page => (page || 1), :per_page => AppConfig.photos_per_page
+    Photo.paginate_by_owner_id id, :page => (page || 1), :per_page => AppConfig.photos_per_page, :conditions => { :public => true }
   end
 
   def has_ads?

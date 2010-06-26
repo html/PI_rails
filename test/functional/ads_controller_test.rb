@@ -63,14 +63,12 @@ class AdsControllerTest < ActionController::TestCase
   
   context "create action" do
     should "render new template when model is invalid" do
-      Ad.any_instance.stubs(:valid?).returns(false)
-      post :create, :ad => {}
+      post :create, :ad => Ad.plan(:invalid)
       assert_template 'new'
     end
     
     should "redirect when model is valid" do
-      Ad.any_instance.stubs(:valid?).returns(true)
-      post :create, :ad => {}
+      post :create, :ad => Ad.plan
       assert_redirected_to ad_url(assigns(:ad))
     end
   end
@@ -85,13 +83,11 @@ class AdsControllerTest < ActionController::TestCase
   context "update action" do
     should "render edit template when model is invalid" do
       ad = Ad.make
-      Ad.any_instance.stubs(:valid?).returns(false)
-      put :update, :id => ad.id
+      put :update, :id => ad.id, :ad => Ad.plan(:invalid)
       assert_template 'edit'
     end
   
     should "redirect when model is valid" do
-      Ad.any_instance.stubs(:valid?).returns(true)
       put :update, :id => Ad.make.id
       assert_redirected_to ad_url(assigns(:ad))
     end

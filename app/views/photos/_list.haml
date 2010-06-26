@@ -7,4 +7,4 @@
       = link_to image_tag(item.image.url(:thumb), :alt => item.title), item.image.url(:full), :class => 'fancy tooltip', :title => item.title, :rel => 'fancy'
     - if @display_delete_link
       .clear
-      = link_to 'Видалити', url_for(:controller => :photos, :action => :destroy, :id => item.id), :class => 'link', :style => "width:80px;float:left"
+      = link_to 'Видалити', url_for(:controller => :photos, :action => :destroy, :id => item.id), :class => 'link', :style => "width:80px;float:left", :confirm => 'Ви впевнені що хочете видалити фото ?'

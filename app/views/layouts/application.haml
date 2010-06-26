@@ -11,6 +11,7 @@
       %meta{ :name => "description", :content => PageInfo::page.description }
     = stylesheet_link_tag 'global', 'menu', 'tooltip', 'link'
     - require_jquery
+    = display_javascript_options
     = yield(:head) 
     = javascript_include_tag 'jquery/vtip'
   %body{ :topmargin => "0", :bgcolor => "#488EC2" }

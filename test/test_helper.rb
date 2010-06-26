@@ -4,9 +4,28 @@ require 'test_help'
 require 'shoulda'
 require 'rr'
 require 'blueprints'
+require 'firewatir'
+
+#XXX monkey patch to avoid firefox error
+JsshSocket.module_eval do
+  def js_eval(str)
+    str.gsub!("\n", "")
+    jssh_socket.send("#{str};\n", 0)
+    value = read_socket()
+    if false && md = /^(\w+)Error:(.*)$/.match(value)
+      errclassname="JS#{md[1]}Error"
+      unless JsshSocket.const_defined?(errclassname)
+        JsshSocket.const_set(errclassname, Class.new(StandardError))
+      end
+      raise JsshSocket.const_get(errclassname), md[2]
+    end
+    value
+  end
+end
 
 class ActiveSupport::TestCase
   include RR::Adapters::TestUnit
+  VALID_IMAGE_PATH = File.expand_path(File.dirname(__FILE__) + '/fixtures/correct_image.png')
 
   setup do
     Sham.reset
@@ -122,5 +141,19 @@ class ActiveSupport::TestCase
   def assert_map_coord_choice_loaded
     assert_jquery_modal_loaded
     assert_javascript_loaded 'map_coord_choice'
+  end
+
+  def browser
+    @@browser ||= Watir::Browser::new
+  end
+
+  def self.watir_test(&block)
+    if watir_enabled
+      yield
+    end
+  end
+
+  def self.watir_enabled
+    false
   end
 end
