@@ -31,6 +31,7 @@ class PhotosControllerTest < ActionController::TestCase
         assert_response :success
         assert_not_nil assigns(:photos)
         assert_not_nil assigns(:show_map)
+        assert_egeoxml_loaded
 
         assert_contains_image_without_delete_link
       end

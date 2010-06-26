@@ -8,7 +8,8 @@
   = stylesheet_link_tag 'link'
   = javascript_include_tag 'jquery/jquery.form', 'jquery/jquery.scrollTo', 'jquery/jquery.cookie'
   = include_google_map
-  = javascript_include_tag 'egeoxml'
+- require_egeoxml
+- content_for :head do
   = javascript_include_tag 'lambda'
   :javascript
     var gallery_options = {
@@ -19,7 +20,7 @@
     get_args = function(){return { zoom: 16 };};
     mix_in_the_url = function(){};
 
-  = javascript_include_tag 'map2', 'gallery'
+  = javascript_include_tag 'map_on_load', 'gallery'
   - only_authorized_user do
     :javascript
       var ad_url =  #{add_url.to_json};
