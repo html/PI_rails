@@ -42,6 +42,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/menu', :controller => :common, :action => 'menu'
   map.connect '/update_page_info', :controller => 'common', :action => 'update_page_info'
   map.connect '/search', :action => 'search', :controller => 'ads'
+  map.subdomain_connect ':host/forum', :controller => 'index', :action => 'forum'
+  map.subdomain_connect ':host/forum/:param', :controller => 'index', :action => 'forum', :param => 'test'
+  map.subdomain_connect ':host/forum/:param.:param2', :controller => 'index', :action => 'forum', :param => 'test', :param2 => 'test2'
+  map.subdomain_connect ':host/forum/:param.:param2?:anything', :controller => 'index', :action => 'forum', :param => 'test', :param2 => 'test2', :anything => ''
   map.subdomain_connect ':controller.:host/sitemap.xml', :action => 'sitemap'
   map.subdomain_connect ':controller.:host/all/:page', :action => 'all', :page => 1
   map.subdomain_connect 'photos.:host/my/:page', :action => 'my', :page => 1, :controller => 'photos'
