@@ -109,4 +109,13 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  if false
+    if RAILS_ENV == 'development'
+      def current_user
+        cookies["#{PHPBB_AUTH_COOKIE_NAME}_sid"] = 'test'
+        PhpbbUser.first
+      end
+    end
+  end
 end
