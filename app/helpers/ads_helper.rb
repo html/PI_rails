@@ -31,7 +31,7 @@ module AdsHelper
   end
 
   def tags
-    [ :buy, :sell, :found, :hire, :lost, :work, :others]
+    [ :buy, :sell, :found, :hire, :lost, :work, :stuff, :others]
   end
 
   def tags_options
