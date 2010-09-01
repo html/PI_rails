@@ -22,7 +22,7 @@
       .clear
   %h5 Контакти:
   = simple_format h @ad.contacts
-  - if @ad.point
+  - if @ad.point && @ad.point.lat && @ad.point.lng
     %h5 Місце:
     - require_google_map_v2_scripts
     - set_js_option 'lat', @ad.point.lat
