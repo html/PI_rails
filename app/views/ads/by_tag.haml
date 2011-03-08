@@ -6,9 +6,9 @@
     - if !@ads.empty?
       - for ad in @ads
         - content = capture do
-          = ad.title
+          = h ad.title
           %br
-          = simple_format truncate(ad.content)
+          = simple_format truncate(h(ad.content))
         = render :partial => 'articles/item', :locals => { :item_url => ad, :content => content, :comments_count => count_comments_for(ad) }
         .clear
     - else
