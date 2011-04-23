@@ -2,6 +2,8 @@
 # This module should be included in all views globally,
 # to do so you may need to add this line to your ApplicationController
 #   helper :layout
+require 'easter'
+
 module LayoutHelper
   LOGOS = {
     [14,02] => 'valentine',
@@ -37,6 +39,10 @@ module LayoutHelper
   def logo_src
     today = Date.today
     index = [today.day, today.month]
-    "/images/logo/%s.png" % (LOGOS[index] || (request.params[:controller] == 'weather' ? 'frosty' : 'main'))
+    "/images/logo/%s.png" % (LOGOS[index] || (request.params[:controller] == 'weather' && [12,1,2].include?(today.month)  ? 'frosty' : (today_is_easter? ? 'easter' : 'main')))
+  end
+
+  def today_is_easter?
+    easter(Date.today.year) == Date.today
   end
 end
