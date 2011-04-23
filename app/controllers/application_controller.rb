@@ -100,7 +100,7 @@ class ApplicationController < ActionController::Base
 
       if result === true
         flash[:notice] = "Коментар успішно додано"
-        return redirect_to :back 
+        return redirect_to_back_or_default
       end
 
       if result
@@ -108,6 +108,12 @@ class ApplicationController < ActionController::Base
         @comment = result
       end
     end
+  end
+
+  def redirect_to_back_or_default(url = nil)
+    redirect_to :back
+  rescue
+    redirect_to (url || root_path)
   end
 
   if false

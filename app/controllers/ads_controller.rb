@@ -4,6 +4,8 @@ class AdsController < ApplicationController
   has_one_page_info :all, :search
   include AdsHelper
   before_filter :transform_params, :only => :create
+  before_filter :require_ad, :only => :destroy
+  before_filter :require_ad_is_owned_by_user, :only => :destroy
   action :create, :edit, :update
 
   def show
@@ -84,11 +86,8 @@ class AdsController < ApplicationController
   end
 
   def destroy
-    @item = Ad.find params[:id]
 
-    if ad_is_owned_by_user(@item)
-      @item.remove
-    end
+    @item.remove
 
     flash[:notice] = 'Успішно видалено оголошення'
     redirect_to ads_url
@@ -101,5 +100,16 @@ class AdsController < ApplicationController
   protected
     def ad_is_owned_by_user(ad)
       (@current_user && @current_user.id = ad.user_id) || @cookied_ads.include?(ad)
+    end
+
+    def require_ad
+      @item = Ad.find params[:id]
+    end
+
+    def require_ad_is_owned_by_user
+      unless ad_is_owned_by_user(@item)
+        flash[:notice] = 'Ви не володієте цим оголошенням, неможливо видалити'
+        redirect_to_back_or_default(ads_url)
+      end
     end
 end

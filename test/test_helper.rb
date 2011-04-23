@@ -23,6 +23,17 @@ JsshSocket.module_eval do
   end
 end
 
+ActionController::TestRequest.class_eval do
+  def initialize_default_values
+    @host                    = APPLICATION_HOST
+    @request_uri             = "/"
+    @env['HTTP_USER_AGENT']  = "Rails Testing"
+    @env['REMOTE_ADDR']      = "0.0.0.0"
+    @env["SERVER_PORT"]      = 80
+    @env['REQUEST_METHOD']   = "GET"
+  end
+end
+
 class ActiveSupport::TestCase
   include RR::Adapters::TestUnit
   VALID_IMAGE_PATH = File.expand_path(File.dirname(__FILE__) + '/fixtures/correct_image.png')
