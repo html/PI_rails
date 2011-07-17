@@ -1,0 +1,12 @@
+= content_field
+- if is_admin
+  %small
+    .fr
+      = remove_comment_link
+      %br
+      = remove_comment_as_spam_link
+- else
+  - remove_comment_link {}
+  - remove_comment_as_spam_link {}
+%br
+.clear
