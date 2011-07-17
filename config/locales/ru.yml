@@ -1,5 +1,7 @@
 ru:
   remove comment: видалити коментар
+  remove comment as spam: видалити коментар як спам
+  mark comment as checked: позначити коментар як перевірений
   activerecord:
     models: 
       ad: Оголошення
