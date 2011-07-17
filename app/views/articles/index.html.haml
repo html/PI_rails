@@ -11,7 +11,7 @@
         = truncate(strip_tags(article.content))
         .clear
         %br
-      = render :partial => 'item', :locals => { :item_url => article, :content => content, :comments_count => count_comments_for(article) }
+      = render :partial => 'item', :locals => { :item_url => article, :content => content, :comments_count => my_count_comments_for(article) }
       .clear
   - else
     - content = capture do

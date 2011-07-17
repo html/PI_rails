@@ -152,4 +152,12 @@ module ApplicationHelper
       end
     end
   end
+
+  def my_comments_for(subject)
+    comments_for(subject, :remove_comment_enabled => true, :remove_comment_as_spam_enabled => true )
+  end
+
+  def my_count_comments_for(subject)
+    count_comments_for(subject, :remove_comment_enabled => true, :remove_comment_as_spam_enabled => true )
+  end
 end

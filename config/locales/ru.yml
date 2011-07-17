@@ -1,4 +1,5 @@
 ru:
+  remove comment: видалити коментар
   activerecord:
     models: 
       ad: Оголошення

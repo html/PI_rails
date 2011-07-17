@@ -17,15 +17,16 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem 'haml'
   config.gem 'httparty'
-  config.gem 'barometer'
+  config.gem 'barometer', :version => '0.6.7'
   config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9" 
   config.gem "mattfawcett-phpbb-auth", :lib => "phpbb_auth", :source => "http://gems.github.com"
   config.gem 'russian', :source => 'http://gemcutter.org'
   config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
-  config.gem "will_paginate"
+  config.gem "will_paginate", :version => "2.3.15"
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   config.gem "sqlite3-ruby", :lib => "sqlite3"
+  config.gem 'bishop'
   # config.gem "aws-s3", :lib => "aws/s3"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
