@@ -192,9 +192,17 @@ class ApplicationController < ActionController::Base
 
   if false
     if RAILS_ENV == 'development'
+      def first_admin_user
+        PhpbbUser.first :conditions => { :group_id => 5 }
+      end
+
+      def first_non_admin_user
+        PhpbbUser.first :conditions => { :group_id => 1 }
+      end
+
       def current_user
         cookies["#{PHPBB_AUTH_COOKIE_NAME}_sid"] = 'test'
-        PhpbbUser.first
+        first_admin_user
       end
     end
   end

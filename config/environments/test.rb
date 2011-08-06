@@ -28,4 +28,4 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 config.gem 'machinist'
 config.gem 'rr'
-config.gem 'firewatir'
+#config.gem 'firewatir'

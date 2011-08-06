@@ -4,24 +4,6 @@ require 'test_help'
 require 'shoulda'
 require 'rr'
 require 'blueprints'
-require 'firewatir'
-
-#XXX monkey patch to avoid firefox error
-JsshSocket.module_eval do
-  def js_eval(str)
-    str.gsub!("\n", "")
-    jssh_socket.send("#{str};\n", 0)
-    value = read_socket()
-    if false && md = /^(\w+)Error:(.*)$/.match(value)
-      errclassname="JS#{md[1]}Error"
-      unless JsshSocket.const_defined?(errclassname)
-        JsshSocket.const_set(errclassname, Class.new(StandardError))
-      end
-      raise JsshSocket.const_get(errclassname), md[2]
-    end
-    value
-  end
-end
 
 ActionController::TestRequest.class_eval do
   def initialize_default_values

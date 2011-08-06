@@ -2,7 +2,7 @@
 - content_for :head do
   %link{ :rel => 'stylesheet', :href => '/css' }
 .clear
-.fl
+.fl.articles-list
   - if !@articles.empty?
     - for article in @articles
       - content = capture do
