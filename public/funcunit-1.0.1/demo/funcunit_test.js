@@ -5,6 +5,13 @@ module("Статті",{
 	}
 })
 
+namedFunction("Перезавантажуєм сторінку", function(callback){
+  S._window.location.reload();
+  setTimeout(function(){
+    callback();
+  }, 1000);
+});
+
 namedFunction("Ідем на головну", function(){
   S.open("http://me:3000/");
 });
@@ -33,7 +40,13 @@ namedFunction("Ідем на сторінку для додавання стат
 
 namedFunction("Додаєм статтю на сторінці", function(callback){
   callNamedFunction("Вводим дані для форми на сторінці статей", function(){
-    S("#article_submit").click(callback);
+    S("#article_submit").click(function(){
+      ok(S('.notice').exists());
+      S('.notice').visible(function(){
+        ok(/Article was successfully created/.test(S('.notice').text()));
+        callback();
+      });
+    });
   });
 });
 
@@ -53,6 +66,17 @@ namedFunction("Видаляєм статтю на сторінці показу 
   });
 });
 
+namedFunction("Додаєм коментар на сторінці статей", function(callback){
+  S("textarea").click()
+      .type('test comment');
+  S("#comment_submit").click();
+  ok(S('.notice').exists());
+  S('.notice').visible(function(){
+    ok(/Коментар успішно додано/.test(S('.notice').text()));
+    callback();
+  });
+});
+
 test("Ширина поля для контенту на сторінці статей повинна бути нормальною", function(){
   callNamedFunction("Ідем на сторінку для додавання статті");
   S('#article_content').visible(function(){
@@ -63,12 +87,7 @@ test("Ширина поля для контенту на сторінці ста
 test('Повинно показати повідомлення про додану статтю', function(){
   callNamedFunction("Ідем на сторінку для додавання статті", function(){
     callNamedFunction("Додаєм статтю на сторінці", function(){
-      ok(S('.notice').exists());
-      S('.notice').visible(function(){
-        ok(/Article was successfully created/.test(S('.notice').text()));
-        callNamedFunction("Видаляєм статтю на сторінці показу статті", function(){
-        });
-      });
+      callNamedFunction("Видаляєм статтю на сторінці показу статті", function(){ });
     });
   });
 });
@@ -77,6 +96,17 @@ test('Сторінка статей повинна завантажуватис�
   callNamedFunction("Ідем на сторінку статей", function(){
     S('.soria').visible(function(){
       ok(S._window.$('.soria').length > 0);
+    });
+  });
+});
+
+test('Коментар додається до статті', function(){
+  callNamedFunction("Ідем на сторінку для додавання статті", function(){
+    callNamedFunction("Додаєм статтю на сторінці", function(){
+      callNamedFunction("Перезавантажуєм сторінку", function(){
+        callNamedFunction("Додаєм коментар на сторінці статей", function(){
+        });
+      });
     });
   });
 });
